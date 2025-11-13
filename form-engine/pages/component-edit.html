@@ -1,0 +1,232 @@
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">新增/编辑组件</h1>
+        <div class="breadcrumb">
+            <span>平台概览</span>
+            <span class="separator">></span>
+            <span>组件库</span>
+            <span class="separator">></span>
+            <span class="active">新增/编辑组件</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <!-- 基本信息表单 -->
+        <div class="form-section">
+            <h3>新增组件</h3>
+            <div class="form-row">
+                <div class="form-item required">
+                    <label>组件名称：</label>
+                    <input type="text" class="form-input" placeholder="请输入 0/30">
+                </div>
+                <div class="form-item required">
+                    <label>组件ID：</label>
+                    <input type="text" class="form-input" placeholder="请输入组件唯一标识">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-item required">
+                    <label>组件类目：</label>
+                    <select class="form-select">
+                        <option>请选择</option>
+                        <option>通用</option>
+                        <option>通用布局</option>
+                        <option>标签</option>
+                        <option>组合品</option>
+                        <option>选择器</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label>组件图标：</label>
+                    <button class="btn btn-default">上传图标</button>
+                    <span style="margin-left: 10px; color: #999;">支持PNG、JPG格式，建议尺寸 24x24px</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-item">
+                    <label>引用权限：</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="permission" value="public" checked> 公用</label>
+                        <label><input type="radio" name="permission" value="private"> 私有</label>
+                    </div>
+                </div>
+                <div class="form-item required">
+                    <label>版本号：</label>
+                    <input type="text" class="form-input" placeholder="如：V1.0">
+                </div>
+            </div>
+            <div class="form-item full-width">
+                <label>组件备注：</label>
+                <textarea class="form-textarea" placeholder="请输入组件备注 0/200" rows="3"></textarea>
+            </div>
+
+            <!-- 组件配置 -->
+            <div style="margin-top: 20px;">
+                <h4>组件配置</h4>
+                <div class="form-item full-width">
+                    <label>组件JSON配置：</label>
+                    <textarea class="form-textarea code-editor" placeholder="请输入组件的JSON配置" rows="10" style="font-family: monospace;">{
+  "type": "input",
+  "field": "fieldName",
+  "title": "字段名称",
+  "props": {
+    "placeholder": "请输入"
+  }
+}</textarea>
+                </div>
+            </div>
+
+            <!-- 组件属性配置 -->
+            <div style="margin-top: 20px;">
+                <h4>组件属性</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>属性名称</th>
+                            <th>属性类型</th>
+                            <th>默认值</th>
+                            <th>是否必填</th>
+                            <th>属性说明</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" class="form-input" placeholder="如：placeholder" value="placeholder"></td>
+                            <td>
+                                <select class="form-select">
+                                    <option>String</option>
+                                    <option>Number</option>
+                                    <option>Boolean</option>
+                                    <option>Object</option>
+                                    <option>Array</option>
+                                </select>
+                            </td>
+                            <td><input type="text" class="form-input" placeholder="默认值" value="请输入"></td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td><input type="text" class="form-input" placeholder="属性说明" value="输入框占位符"></td>
+                            <td>
+                                <a href="#" class="action-link">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" class="form-input" placeholder="如：maxLength" value="maxLength"></td>
+                            <td>
+                                <select class="form-select">
+                                    <option>String</option>
+                                    <option selected>Number</option>
+                                    <option>Boolean</option>
+                                    <option>Object</option>
+                                    <option>Array</option>
+                                </select>
+                            </td>
+                            <td><input type="text" class="form-input" placeholder="默认值" value="100"></td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td><input type="text" class="form-input" placeholder="属性说明" value="最大输入长度"></td>
+                            <td>
+                                <a href="#" class="action-link">删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-default" style="margin-top: 10px;">➕ 添加属性</button>
+            </div>
+
+            <div class="form-actions" style="margin-top: 30px;">
+                <button class="btn btn-default">取消</button>
+                <button class="btn btn-primary">保存</button>
+                <button class="btn btn-primary">保存并发布</button>
+            </div>
+        </div>
+
+        <!-- 原型说明 -->
+        <div class="prototype-notes">
+            <h3>原型说明：</h3>
+            
+            <div class="note-section">
+                <h4>页面名称：新增/编辑组件</h4>
+                <p><strong>页面描述：</strong>新增或编辑组件的弹框/页面</p>
+                <p><strong>功能应用：</strong>在组件库页面点击"新增"或"编辑"时显示</p>
+            </div>
+
+            <div class="note-section">
+                <h4>组件基本信息</h4>
+                <ul>
+                    <li><strong>组件名称：</strong>必填，最大字符限制为30，用于在表单编辑器中显示</li>
+                    <li><strong>组件ID：</strong>必填，组件的唯一标识符，用于程序调用</li>
+                    <li><strong>组件类目：</strong>必填，用于在组件库中分类展示</li>
+                    <li><strong>组件图标：</strong>可选，用于在组件库中显示的图标</li>
+                    <li><strong>引用权限：</strong>
+                        <ul>
+                            <li>公用：所有用户都可以使用该组件</li>
+                            <li>私有：只有创建者可以使用该组件</li>
+                        </ul>
+                    </li>
+                    <li><strong>版本号：</strong>必填，组件的版本标识，如：V1.0、V2.0</li>
+                    <li><strong>组件备注：</strong>可选，最大200字符，用于说明组件用途</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>组件配置说明</h4>
+                <ul>
+                    <li><strong>组件JSON配置：</strong>必填，定义组件的结构和默认配置
+                        <ul>
+                            <li>type：组件类型（input、select、datePicker等）</li>
+                            <li>field：字段名称</li>
+                            <li>title：字段标题</li>
+                            <li>props：组件属性配置</li>
+                        </ul>
+                    </li>
+                    <li><strong>组件属性：</strong>定义组件可配置的属性
+                        <ul>
+                            <li>属性名称：属性的key值</li>
+                            <li>属性类型：String、Number、Boolean、Object、Array</li>
+                            <li>默认值：属性的默认值</li>
+                            <li>是否必填：该属性是否为必填项</li>
+                            <li>属性说明：属性的用途说明</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>操作说明</h4>
+                <ul>
+                    <li><strong>取消：</strong>关闭弹框，不保存修改</li>
+                    <li><strong>保存：</strong>保存组件配置，但不发布
+                        <ul>
+                            <li>需判断必填字段是否已填</li>
+                            <li>若为输入框则提示：请录入{字段名}</li>
+                            <li>若为选择框则提示：请选择{字段名}</li>
+                            <li>保存成功后提示：保存成功</li>
+                        </ul>
+                    </li>
+                    <li><strong>保存并发布：</strong>保存组件配置并立即发布
+                        <ul>
+                            <li>发布后的组件可以在表单编辑器中使用</li>
+                            <li>已关联的应用仍显示之前版本组件</li>
+                            <li>表单编辑器显示最新版本组件</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>组件开发指引</h4>
+                <ul>
+                    <li>1. 组件需基于 form-create 框架开发</li>
+                    <li>2. 组件需支持v-model双向绑定</li>
+                    <li>3. 组件需实现验证规则接口</li>
+                    <li>4. 组件需支持禁用、只读等通用状态</li>
+                    <li>5. 组件配置需包含完整的属性说明</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

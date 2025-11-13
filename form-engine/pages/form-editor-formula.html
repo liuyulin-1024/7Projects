@@ -1,0 +1,210 @@
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">组件公式配置-通用</h1>
+        <div class="breadcrumb">
+            <span>平台概览</span>
+            <span class="separator">></span>
+            <span>表单管理</span>
+            <span class="separator">></span>
+            <span>表单编辑器</span>
+            <span class="separator">></span>
+            <span class="active">组件公式配置</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="info-box">
+            <h3>公式配置说明</h3>
+            <p>公式配置用于设置组件的计算逻辑，支持基础数学运算和函数调用。</p>
+            <p>公式中可以引用表单中其他组件的值，当被引用组件值变化时，会自动重新计算结果。</p>
+        </div>
+
+        <div class="form-section" style="margin-top: 20px;">
+            <h3>公式编辑器</h3>
+            
+            <div class="form-item">
+                <label>目标字段：<span style="color: red;">*</span></label>
+                <select class="form-select" style="width: 300px;">
+                    <option>请选择字段</option>
+                    <option>总金额</option>
+                    <option>平均分数</option>
+                    <option>合计数量</option>
+                </select>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>公式表达式：<span style="color: red;">*</span></label>
+                <textarea class="form-textarea code-editor" rows="5" style="font-family: monospace;" placeholder="如：单价 * 数量">单价 * 数量</textarea>
+                <div style="margin-top: 5px; color: #999; font-size: 12px;">
+                    支持的运算符：+（加）、-（减）、*（乘）、/（除）、%（取余）、^（幂运算）
+                </div>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>可用字段：</label>
+                <div class="field-selector" style="border: 1px solid #d9d9d9; padding: 10px; border-radius: 4px; max-height: 200px; overflow-y: auto;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <button class="btn btn-sm" onclick="insertField('单价')">单价</button>
+                        <button class="btn btn-sm" onclick="insertField('数量')">数量</button>
+                        <button class="btn btn-sm" onclick="insertField('折扣率')">折扣率</button>
+                        <button class="btn btn-sm" onclick="insertField('税率')">税率</button>
+                        <button class="btn btn-sm" onclick="insertField('运费')">运费</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>可用函数：</label>
+                <div class="function-list" style="border: 1px solid #d9d9d9; padding: 10px; border-radius: 4px;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <button class="btn btn-sm" onclick="insertFunction('SUM')">SUM(求和)</button>
+                        <button class="btn btn-sm" onclick="insertFunction('AVG')">AVG(平均值)</button>
+                        <button class="btn btn-sm" onclick="insertFunction('MAX')">MAX(最大值)</button>
+                        <button class="btn btn-sm" onclick="insertFunction('MIN')">MIN(最小值)</button>
+                        <button class="btn btn-sm" onclick="insertFunction('ROUND')">ROUND(四舍五入)</button>
+                        <button class="btn btn-sm" onclick="insertFunction('ABS')">ABS(绝对值)</button>
+                        <button class="btn btn-sm" onclick="insertFunction('IF')">IF(条件判断)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>计算时机：</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="calcTiming" value="realtime" checked> 实时计算</label>
+                    <label><input type="radio" name="calcTiming" value="blur"> 失去焦点时</label>
+                    <label><input type="radio" name="calcTiming" value="submit"> 提交时</label>
+                </div>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>小数位数：</label>
+                <input type="number" class="form-input" value="2" min="0" max="10" style="width: 100px;">
+                <span style="margin-left: 10px; color: #999;">计算结果保留的小数位数</span>
+            </div>
+
+            <div class="form-actions" style="margin-top: 20px;">
+                <button class="btn btn-default">取消</button>
+                <button class="btn btn-primary">验证公式</button>
+                <button class="btn btn-primary">保存</button>
+            </div>
+        </div>
+
+        <!-- 公式示例 -->
+        <div class="form-section" style="margin-top: 30px;">
+            <h3>公式示例</h3>
+            
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">计算总金额</h4>
+                <code style="display: block; padding: 5px; background: white; border-radius: 4px;">单价 * 数量 * (1 - 折扣率)</code>
+                <p style="margin-bottom: 0; color: #666; font-size: 13px;">说明：根据单价、数量和折扣率计算总金额</p>
+            </div>
+
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">计算含税金额</h4>
+                <code style="display: block; padding: 5px; background: white; border-radius: 4px;">总金额 * (1 + 税率)</code>
+                <p style="margin-bottom: 0; color: #666; font-size: 13px;">说明：根据总金额和税率计算含税金额</p>
+            </div>
+
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">使用函数计算</h4>
+                <code style="display: block; padding: 5px; background: white; border-radius: 4px;">SUM(明细表.金额) + 运费</code>
+                <p style="margin-bottom: 0; color: #666; font-size: 13px;">说明：对明细表中的金额字段求和，再加上运费</p>
+            </div>
+
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">条件判断</h4>
+                <code style="display: block; padding: 5px; background: white; border-radius: 4px;">IF(总金额 > 10000, 总金额 * 0.9, 总金额)</code>
+                <p style="margin-bottom: 0; color: #666; font-size: 13px;">说明：如果总金额大于10000，则打9折，否则保持原价</p>
+            </div>
+        </div>
+
+        <!-- 原型说明 -->
+        <div class="prototype-notes">
+            <h3>原型说明：</h3>
+            
+            <div class="note-section">
+                <h4>页面名称：组件公式配置-通用</h4>
+                <p><strong>页面描述：</strong>配置页面，为组件设置计算公式</p>
+                <p><strong>功能应用：</strong>在表单编辑器中，为需要自动计算的字段配置公式</p>
+            </div>
+
+            <div class="note-section">
+                <h4>配置说明</h4>
+                <ul>
+                    <li><strong>目标字段：</strong>必选，需要设置公式的字段</li>
+                    <li><strong>公式表达式：</strong>必填，计算公式
+                        <ul>
+                            <li>支持基础运算符：+、-、*、/、%、^</li>
+                            <li>支持括号改变运算优先级</li>
+                            <li>字段名使用中文或英文都可以</li>
+                            <li>对明细表字段需使用"明细表名.字段名"的格式</li>
+                        </ul>
+                    </li>
+                    <li><strong>可用字段：</strong>显示表单中所有可用于公式的字段
+                        <ul>
+                            <li>点击字段按钮可快速插入到公式中</li>
+                            <li>数值类型字段才能参与运算</li>
+                        </ul>
+                    </li>
+                    <li><strong>可用函数：</strong>显示系统支持的计算函数
+                        <ul>
+                            <li>SUM：求和函数，用于明细表</li>
+                            <li>AVG：平均值函数</li>
+                            <li>MAX：最大值函数</li>
+                            <li>MIN：最小值函数</li>
+                            <li>ROUND：四舍五入函数</li>
+                            <li>ABS：绝对值函数</li>
+                            <li>IF：条件判断函数</li>
+                        </ul>
+                    </li>
+                    <li><strong>计算时机：</strong>
+                        <ul>
+                            <li>实时计算：引用字段值改变时立即计算</li>
+                            <li>失去焦点时：引用字段失去焦点时计算</li>
+                            <li>提交时：表单提交前计算</li>
+                        </ul>
+                    </li>
+                    <li><strong>小数位数：</strong>计算结果保留的小数位数，0-10位</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>操作说明</h4>
+                <ul>
+                    <li><strong>验证公式：</strong>检查公式语法是否正确，是否引用了不存在的字段</li>
+                    <li><strong>保存：</strong>保存公式配置
+                        <ul>
+                            <li>保存前会自动验证公式</li>
+                            <li>验证失败会提示具体错误</li>
+                            <li>保存成功后返回表单编辑器</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function insertField(fieldName) {
+    const textarea = document.querySelector('.code-editor');
+    const cursorPos = textarea.selectionStart;
+    const textBefore = textarea.value.substring(0, cursorPos);
+    const textAfter = textarea.value.substring(cursorPos);
+    textarea.value = textBefore + fieldName + textAfter;
+    textarea.focus();
+    textarea.selectionStart = textarea.selectionEnd = cursorPos + fieldName.length;
+}
+
+function insertFunction(funcName) {
+    const textarea = document.querySelector('.code-editor');
+    const cursorPos = textarea.selectionStart;
+    const textBefore = textarea.value.substring(0, cursorPos);
+    const textAfter = textarea.value.substring(cursorPos);
+    textarea.value = textBefore + funcName + '()' + textAfter;
+    textarea.focus();
+    textarea.selectionStart = textarea.selectionEnd = cursorPos + funcName.length + 1;
+}
+</script>
+

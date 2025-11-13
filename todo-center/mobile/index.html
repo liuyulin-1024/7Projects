@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>待办中心</title>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <span class="time">9:41</span>
+        <div class="status-icons">
+            <span class="signal">📶</span>
+            <span class="wifi">📡</span>
+            <span class="battery">🔋</span>
+        </div>
+    </div>
+
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="header-top">
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span class="workspace-name">工作台</span>
+            </div>
+            <div class="company-name">
+                xxx有限公司
+                <span class="dropdown-icon">▼</span>
+            </div>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="搜索" class="search-input">
+            <button class="filter-btn">
+                <span class="filter-icon">🔽</span>
+                <span class="filter-text">筛选</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 导航标签 -->
+    <nav class="nav-tabs">
+        <button class="nav-tab active">待办中心</button>
+        <button class="nav-tab">通知公告</button>
+        <button class="nav-tab">我的应用</button>
+    </nav>
+
+    <!-- 工单类型标签 -->
+    <div class="type-tabs">
+        <button class="type-tab active" data-type="todo">
+            <span class="tab-text">待办</span>
+            <span class="tab-count">(9)</span>
+        </button>
+        <button class="type-tab" data-type="done">
+            <span class="tab-text">已办</span>
+            <span class="tab-count">(35)</span>
+        </button>
+        <button class="type-tab" data-type="sent">
+            <span class="tab-text">已发</span>
+            <span class="tab-count">(16)</span>
+        </button>
+        <button class="type-tab" data-type="finished">
+            <span class="tab-text">办结</span>
+            <span class="tab-count">(57)</span>
+        </button>
+    </div>
+
+    <!-- 工单列表 -->
+    <div class="todo-list" id="todoList">
+        <!-- 待办列表 -->
+        <div class="list-content" data-type="todo">
+            <div class="todo-item" onclick="location.href='detail.html?id=1&type=todo'">
+                <div class="item-header">
+                    <div class="avatar-circle urgent">明俊</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="urgent-tag">急</span>
+                            <span class="reminder-tag">催办</span>
+                            <span class="item-title">2026年年度预算申请</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn">处理</button>
+                </div>
+            </div>
+
+            <div class="todo-item" onclick="location.href='detail.html?id=2&type=todo'">
+                <div class="item-header">
+                    <div class="avatar-circle">张宁</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="urgent-tag">急</span>
+                            <span class="reminder-tag">催办</span>
+                            <span class="item-title">AI智能客服系统项目立...</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn">处理</button>
+                </div>
+            </div>
+
+            <div class="todo-item" onclick="location.href='detail.html?id=3&type=todo'">
+                <div class="item-header">
+                    <div class="avatar-circle">鸿飞</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">新员工入职审批</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn">处理</button>
+                </div>
+            </div>
+
+            <div class="todo-item" onclick="location.href='detail.html?id=4&type=todo'">
+                <div class="item-header">
+                    <div class="avatar-circle">明涛</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">财务部软件采购合同审批</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn">处理</button>
+                </div>
+            </div>
+
+            <div class="todo-item" onclick="location.href='detail.html?id=5&type=todo'">
+                <div class="item-header">
+                    <div class="avatar-circle">史进</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">工程部自动化项目事宜讨论</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn">处理</button>
+                </div>
+            </div>
+
+            <div class="todo-item" onclick="location.href='detail.html?id=6&type=todo'">
+                <div class="item-header">
+                    <div class="avatar-circle">张宁</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">新员工入职审批</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn">处理</button>
+                </div>
+            </div>
+
+            <div class="todo-item" onclick="location.href='detail.html?id=7&type=todo'">
+                <div class="item-header">
+                    <div class="avatar-circle">王蒙</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">王蒙的项目申请</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn">处理</button>
+                </div>
+            </div>
+
+            <div class="todo-item" onclick="location.href='detail.html?id=8&type=todo'">
+                <div class="item-header">
+                    <div class="avatar-circle">刘能</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">刘能的待办申请</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn">处理</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 已办列表 -->
+        <div class="list-content hidden" data-type="done">
+            <div class="todo-item" onclick="location.href='detail.html?id=1&type=done'">
+                <div class="item-header">
+                    <div class="avatar-circle">明俊</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">2026年年度预算申请</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn view-btn">查看</button>
+                </div>
+            </div>
+
+            <div class="todo-item" onclick="location.href='detail.html?id=2&type=done'">
+                <div class="item-header">
+                    <div class="avatar-circle">张宁</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">AI智能客服系统项目立...</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn view-btn">查看</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 已发列表 -->
+        <div class="list-content hidden" data-type="sent">
+            <div class="todo-item" onclick="location.href='detail.html?id=1&type=sent'">
+                <div class="item-header">
+                    <div class="avatar-circle">明俊</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">2026年年度预算申请</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn view-btn">查看</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 办结列表 -->
+        <div class="list-content hidden" data-type="finished">
+            <div class="todo-item" onclick="location.href='detail.html?id=1&type=finished'">
+                <div class="item-header">
+                    <div class="avatar-circle">明俊</div>
+                    <div class="item-info">
+                        <div class="item-title-row">
+                            <span class="item-title">2026年年度预算申请</span>
+                        </div>
+                        <div class="item-time">2025/06/30 14:09:34</div>
+                    </div>
+                    <button class="action-btn view-btn">查看</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <footer class="bottom-nav">
+        <div class="nav-item">
+            <span class="nav-icon">💬</span>
+            <span class="nav-label">消息</span>
+        </div>
+        <div class="nav-item active">
+            <span class="nav-icon">💼</span>
+            <span class="nav-label">工作台</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">📅</span>
+            <span class="nav-label">日程</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">👥</span>
+            <span class="nav-label">通讯录</span>
+        </div>
+    </footer>
+
+    <script src="js/mobile.js"></script>
+</body>
+</html>
+

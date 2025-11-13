@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>详情</title>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body class="detail-page">
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <span class="time">9:41</span>
+        <div class="status-icons">
+            <span class="signal">📶</span>
+            <span class="wifi">📡</span>
+            <span class="battery">🔋</span>
+        </div>
+    </div>
+
+    <!-- 头部导航 -->
+    <header class="detail-header">
+        <button class="back-btn" onclick="history.back()">
+            <span class="back-icon">‹</span>
+        </button>
+        <h1 class="page-title">详情</h1>
+        <button class="more-btn">
+            <span class="more-icon">⋮</span>
+        </button>
+    </header>
+
+    <!-- 内容区域 -->
+    <div class="detail-content">
+        <!-- 标题区域 -->
+        <div class="detail-title-section">
+            <h2 class="detail-title">2026年年度预算申请</h2>
+            <button class="next-btn">下一条</button>
+        </div>
+
+        <!-- 稍后办按钮 -->
+        <div class="action-bar" id="actionBar">
+            <button class="later-btn">
+                <span>稍后办</span>
+                <span class="star-icon">⭐</span>
+            </button>
+        </div>
+
+        <!-- 基本信息 -->
+        <section class="info-section">
+            <h3 class="section-title">基本信息</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">工单编号</span>
+                    <span class="info-value">WO20250816001</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">工单来源</span>
+                    <span class="info-value">财务系统</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">发起人</span>
+                    <span class="info-value">周明俊</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">发起人部门</span>
+                    <span class="info-value">财务部</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">发起时间</span>
+                    <span class="info-value">2023-08-16 14:25:36</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">到达时间</span>
+                    <span class="info-value">2023-08-16 18:25:09</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 审批流程 -->
+        <section class="info-section">
+            <h3 class="section-title">审批流程</h3>
+            <div class="process-list">
+                <div class="process-item completed">
+                    <div class="process-dot"></div>
+                    <div class="process-line"></div>
+                    <div class="process-content">
+                        <div class="process-name">提交申请</div>
+                        <div class="process-desc">申请人：周明俊（财务部）| 2023-08-16 14:25:36</div>
+                    </div>
+                </div>
+                
+                <div class="process-item completed">
+                    <div class="process-dot"></div>
+                    <div class="process-line"></div>
+                    <div class="process-content">
+                        <div class="process-name">部门经理审批</div>
+                        <div class="process-desc">审批人：张天一（财务部）| 2023-08-16 19:14:02</div>
+                    </div>
+                </div>
+                
+                <div class="process-item current">
+                    <div class="process-dot"></div>
+                    <div class="process-line"></div>
+                    <div class="process-content">
+                        <div class="process-name">财务审批</div>
+                        <div class="process-desc">审批人：李天池（财务部）| 等待审批...</div>
+                    </div>
+                </div>
+                
+                <div class="process-item">
+                    <div class="process-dot"></div>
+                    <div class="process-line"></div>
+                    <div class="process-content">
+                        <div class="process-name">CFO审批</div>
+                        <div class="process-desc">审批人：刘文（财务部）</div>
+                    </div>
+                </div>
+                
+                <div class="process-item last">
+                    <div class="process-dot"></div>
+                    <div class="process-content">
+                        <div class="process-name">CEO审批</div>
+                        <div class="process-desc">审批人：代柯（总裁办）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 附件信息 -->
+        <section class="info-section">
+            <h3 class="section-title">附件信息</h3>
+            <div class="attachment-list">
+                <div class="attachment-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">2026年年度预算申请表.xlsx</span>
+                </div>
+                <div class="attachment-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">市场可研报告.docx</span>
+                </div>
+                <div class="attachment-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">2025年财报、利润表.rar</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 审批意见 -->
+        <section class="info-section" id="approvalSection">
+            <h3 class="section-title">审批意见</h3>
+            <textarea class="approval-input" placeholder="（选填）"></textarea>
+            
+            <div class="approval-actions">
+                <button class="approval-btn agree-btn">
+                    <span>同意</span>
+                    <span class="btn-icon">✓</span>
+                </button>
+                <button class="approval-btn reject-btn">
+                    <span>拒绝</span>
+                    <span class="btn-icon">✗</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 查看状态下的审批意见（只读） -->
+        <section class="info-section hidden" id="approvalViewSection">
+            <h3 class="section-title">审批意见</h3>
+            <div class="approval-readonly">同意</div>
+        </section>
+    </div>
+
+    <script src="js/detail.js"></script>
+</body>
+</html>
+

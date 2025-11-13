@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>已办列表 - 待办中心</title>
+    <link rel="stylesheet" href="css/pc.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="top-navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="../assets/logo.png" alt="中国华夏" class="logo-img">
+                <span class="site-name">一站式门户</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="user-info">
+                <span class="username">用户名</span>
+                <img src="../assets/avatar.png" alt="用户头像" class="avatar">
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="workspace-title">
+                    <span class="icon">🏠</span>
+                    <span>工作台</span>
+                </div>
+            </div>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="menu-icon">💬</span>
+                    <span class="menu-text">即时通讯</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">🤖</span>
+                    <span class="menu-text">AI助理</span>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="content-wrapper">
+            <div class="breadcrumb">
+                <span class="breadcrumb-item clickable" onclick="location.href='index.html'">工作台</span>
+                <span class="breadcrumb-separator">></span>
+                <span class="breadcrumb-item">待办中心</span>
+            </div>
+
+            <div class="type-tabs">
+                <button class="type-tab" onclick="location.href='list-todo.html'">待办</button>
+                <button class="type-tab active">已办</button>
+                <button class="type-tab" onclick="location.href='list-sent.html'">已发</button>
+                <button class="type-tab" onclick="location.href='list-finished.html'">办结</button>
+            </div>
+
+            <h2 class="page-title">已办列表</h2>
+
+            <!-- 
+                注释：已办列表字段
+                - 字段包括：工单号、标题、发起人、发起人部门、发起时间、办理时间、状态、工单来源、紧急程度、操作
+                - 其中发起人通过搜索、其他通过筛选快速检索
+                - 办结的工单也要在已办列表展示
+                - 状态包含两类：审批中、办结
+            -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="150">工单号</th>
+                            <th>标题</th>
+                            <th width="100">发起人</th>
+                            <th width="120">发起人部门</th>
+                            <th width="160">发起时间</th>
+                            <th width="160">办理时间</th>
+                            <th width="100">状态</th>
+                            <th width="100">工单来源</th>
+                            <th width="100">紧急程度</th>
+                            <th width="100">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row" onclick="goToDetail('WO20250816001', 'done')">
+                            <td class="order-no">WO20250816001</td>
+                            <td class="title-cell">2026年年度预算申请</td>
+                            <td>周明俊</td>
+                            <td>财务部</td>
+                            <td>2023-08-16 14:25:36</td>
+                            <td>2023-08-16 14:25:36</td>
+                            <td><span class="status-tag processing">审批中</span></td>
+                            <td>财务</td>
+                            <td><span class="priority-tag urgent">紧急</span></td>
+                            <td>
+                                <button class="action-btn view-btn" onclick="event.stopPropagation(); goToDetail('WO20250816001', 'done')">查看</button>
+                            </td>
+                        </tr>
+                        <tr class="table-row" onclick="goToDetail('WO20250816002', 'done')">
+                            <td class="order-no">WO20250816002</td>
+                            <td class="title-cell">AI智能客服系统项目立项审批</td>
+                            <td>张宁</td>
+                            <td>工程部</td>
+                            <td>2023-08-16 14:25:36</td>
+                            <td>2023-08-16 14:25:36</td>
+                            <td><span class="status-tag processing">审批中</span></td>
+                            <td>PMS</td>
+                            <td><span class="priority-tag normal">-</span></td>
+                            <td>
+                                <button class="action-btn view-btn" onclick="event.stopPropagation(); goToDetail('WO20250816002', 'done')">查看</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button class="page-btn">上一页</button>
+                <span class="page-number active">1</span>
+                <span class="page-number">2</span>
+                <span class="page-number">3</span>
+                <button class="page-btn">下一页</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/pc.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,334 @@
+<!-- 组件库页面 -->
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">组件库</h1>
+        <div class="breadcrumb">
+            <span>平台概览</span>
+            <span class="separator">></span>
+            <span class="active">组件库</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <!-- 左侧标签分类 -->
+        <div class="component-library-layout">
+            <aside class="component-sidebar">
+                <div class="tag-tree">
+                    <div class="tag-item active" data-tag="all">
+                        <span>全部组件</span>
+                    </div>
+                    <div class="tag-item" data-tag="general">
+                        <span>通用</span>
+                    </div>
+                    <div class="tag-item" data-tag="layout">
+                        <span>布局</span>
+                    </div>
+                    <div class="tag-item" data-tag="form">
+                        <span>oa表单</span>
+                    </div>
+                    <div class="tag-item" data-tag="portal">
+                        <span>门户</span>
+                    </div>
+                    <div class="tag-item" data-tag="selector">
+                        <span>选择器 ></span>
+                    </div>
+                    <div class="tag-item" data-tag="erp">
+                        <span>ERP</span>
+                    </div>
+                </div>
+
+                <!-- 已加载组件 -->
+                <div class="loaded-components">
+                    <div class="section-header">
+                        <h4>已加载组件 <span class="note-marker">5</span></h4>
+                        <button class="btn btn-sm">收起已加载组件<span class="note-marker">6</span></button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 主内容区 -->
+            <div class="component-main">
+                <!-- 搜索筛选区 -->
+                <div class="filter-section">
+                    <div class="filter-row">
+                        <div class="filter-item">
+                            <label>组件名称：<span class="note-marker">1</span></label>
+                            <input type="text" class="form-input" placeholder="请输入组件名称">
+                        </div>
+                        <div class="filter-item">
+                            <label>组件ID：<span class="note-marker">2</span></label>
+                            <input type="text" class="form-input" placeholder="请输入组件ID">
+                        </div>
+                        <div class="filter-item">
+                            <label>发布状态：<span class="note-marker">3</span></label>
+                            <select class="form-select">
+                                <option>全部</option>
+                                <option>未发布</option>
+                                <option>发布</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label>组件备注：<span class="note-marker">4</span></label>
+                            <input type="text" class="form-input" placeholder="请输入组件备注">
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="btn btn-primary">搜索</button>
+                        <button class="btn btn-default">重置</button>
+                    </div>
+                </div>
+
+                <!-- 操作按钮 -->
+                <div class="action-bar">
+                    <button class="btn btn-primary" data-action="add-component">
+                        <span class="note-marker">10</span>新增
+                    </button>
+                    <button class="btn btn-default">
+                        <span class="note-marker">11</span>刷新组件内容
+                    </button>
+                </div>
+
+                <!-- 组件卡片列表 -->
+                <div class="component-grid">
+                    <div class="component-card">
+                        <div class="card-header">
+                            <h4>目录树型选择器</h4>
+                            <span class="version-badge">V1<span class="note-marker">7</span></span>
+                        </div>
+                        <div class="card-body">
+                            <div class="component-preview">
+                                <!-- 组件预览图 -->
+                                <div class="preview-placeholder">组件预览</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="icon-btn" title="查看引用">
+                                <span class="note-marker">13</span>📊
+                            </button>
+                            <button class="icon-btn" title="编辑">
+                                <span class="note-marker">8</span>✏️
+                            </button>
+                            <button class="icon-btn" title="删除">🗑️</button>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-header">
+                            <h4>年月日时分秒</h4>
+                            <span class="version-badge">V2<span class="note-marker">9</span></span>
+                            <span class="badge badge-published">已发布<span class="note-marker">15</span></span>
+                        </div>
+                        <div class="card-body">
+                            <div class="component-preview">
+                                <div class="preview-placeholder">组件预览</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="icon-btn" title="查看引用">📊</button>
+                            <button class="icon-btn" title="编辑">✏️</button>
+                            <button class="icon-btn" title="删除">🗑️</button>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-header">
+                            <h4>自动操作编辑态</h4>
+                            <span class="version-badge">V1</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="component-preview">
+                                <div class="preview-placeholder">组件预览</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="icon-btn" title="查看引用">📊</button>
+                            <button class="icon-btn" title="编辑">✏️</button>
+                            <button class="icon-btn" title="删除">🗑️</button>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-header">
+                            <h4>计数器</h4>
+                            <span class="version-badge">V1</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="component-preview">
+                                <div class="preview-placeholder">组件预览</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="icon-btn" title="查看引用">📊</button>
+                            <button class="icon-btn" title="编辑">✏️</button>
+                            <button class="icon-btn" title="删除">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 原型说明 -->
+        <div class="prototype-notes">
+            <h3>原型说明：</h3>
+            
+            <div class="note-section">
+                <h4>页面名称：组件库</h4>
+                <p><strong>页面描述：</strong>列表页，管理系统初始化和用户新增的组件</p>
+                <p><strong>功能应用：</strong>表单编辑器以及其他页面可使用该组件</p>
+            </div>
+
+            <div class="note-section">
+                <h4>列表显示说明 <span class="note-marker">1</span></h4>
+                <ul>
+                    <li>1.1 无数据时，显示为空，提示语：暂无数据</li>
+                    <li>1.2 按更新时间从左到右倒序显示</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>组件引用说明 <span class="note-marker">2</span></h4>
+                <ul>
+                    <li>1.1 按版本号从高到低自上而下显示，相同版本按后端返回显示</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>注释说明</h4>
+                
+                <p><strong><span class="note-marker">1</span> 组件名称（筛选）：</strong></p>
+                <ul>
+                    <li>组件名称：支持模糊搜索组件名称</li>
+                </ul>
+
+                <p><strong><span class="note-marker">2</span> 组件ID（筛选）：</strong></p>
+                <ul>
+                    <li>组件ID：支持模糊搜索</li>
+                </ul>
+
+                <p><strong><span class="note-marker">3</span> 发布状态（筛选）：</strong></p>
+                <ul>
+                    <li>默认全部，枚举值为未发布、已发布</li>
+                </ul>
+
+                <p><strong><span class="note-marker">4</span> 组件备注（筛选）：</strong></p>
+                <ul>
+                    <li>组件备注：支持模糊搜索</li>
+                </ul>
+
+                <p><strong><span class="note-marker">5</span> 已加载组件：</strong></p>
+                <ul>
+                    <li>以下显示已被应用使用的组件。默认展开全部</li>
+                </ul>
+
+                <p><strong><span class="note-marker">6</span> 收起已加载组件：</strong></p>
+                <ul>
+                    <li>点击后下方数据收起不显示；此处按钮变更为"展开已加载组件"，点击后显示全部数据</li>
+                </ul>
+
+                <p><strong><span class="note-marker">7</span> V1（版本号）：</strong></p>
+                <ul>
+                    <li>此处显示该组件的最新版本号</li>
+                </ul>
+
+                <p><strong><span class="note-marker">8</span> 引用按钮：</strong></p>
+                <ul>
+                    <li>1、若组件未被使用，该按钮不显示</li>
+                    <li>2、若已被使用则点击后弹框显示：版本引用，详见版本引用的说明</li>
+                </ul>
+
+                <p><strong><span class="note-marker">9</span> 发布按钮：</strong></p>
+                <ul>
+                    <li>1、若组件当前最新版本未发布，显示该按钮，点击后弹框提示：确认发布该版本？ 取消 确定（点击"取消"关闭弹框，点击"确定"发布该版本，已关联的应用仍显示之前版本组件，表单编辑器显示最新版本组件）</li>
+                    <li>2、若组件的最新版本已发布，则该按钮不显示</li>
+                </ul>
+
+                <p><strong><span class="note-marker">10</span> 新增：</strong></p>
+                <ul>
+                    <li>点击"新增"显示新增组件的弹框，详见弹框说明</li>
+                </ul>
+
+                <p><strong><span class="note-marker">11</span> 刷新组件内容：</strong></p>
+                <ul>
+                    <li>点击刷新组件内容，该页面从新加载最新数据</li>
+                </ul>
+
+                <p><strong><span class="note-marker">12</span> 通用（类目名）：</strong></p>
+                <ul>
+                    <li>此处显示组件类目名，一行显示不下时参照全部组件的标签交互</li>
+                </ul>
+
+                <p><strong><span class="note-marker">13</span> 组件图标：</strong></p>
+                <ul>
+                    <li>此处显示为组件的图标</li>
+                </ul>
+
+                <p><strong><span class="note-marker">14</span> 编辑按钮：</strong></p>
+                <ul>
+                    <li>点击后跳转至"编辑组件"的页面</li>
+                </ul>
+
+                <p><strong><span class="note-marker">15</span> 公用标识：</strong></p>
+                <ul>
+                    <li>该组件若为公用，则此处显示该标识</li>
+                </ul>
+
+                <p><strong><span class="note-marker">16</span> 引用权限（筛选）：</strong></p>
+                <ul>
+                    <li>默认全部，枚举值为公用、私有</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 组件引用弹窗 -->
+<div class="modal" id="componentReferenceModal" style="display: none;">
+    <div class="modal-content modal-lg">
+        <div class="modal-header">
+            <h3>组件引用<span class="note-marker">14</span></h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>版本号<span class="note-marker">1</span></th>
+                        <th>所属应用</th>
+                        <th>页面名称</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>v2</td>
+                        <td>oa系统</td>
+                        <td>部门审批创建页</td>
+                    </tr>
+                    <tr>
+                        <td>v2</td>
+                        <td>门户</td>
+                        <td>待办页</td>
+                    </tr>
+                    <tr>
+                        <td>v2</td>
+                        <td>oa系统</td>
+                        <td>采购归档页</td>
+                    </tr>
+                    <tr>
+                        <td>v2</td>
+                        <td>门户</td>
+                        <td>日程页</td>
+                    </tr>
+                    <tr>
+                        <td>v1</td>
+                        <td>oa系统</td>
+                        <td>费用申请创建页</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" data-dismiss="modal">关闭</button>
+        </div>
+    </div>
+</div>
+

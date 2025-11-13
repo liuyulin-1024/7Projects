@@ -1,0 +1,326 @@
+<!-- 表单管理页面 -->
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">表单管理</h1>
+        <div class="breadcrumb">
+            <span>平台概览</span>
+            <span class="separator">></span>
+            <span class="active">表单管理</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <!-- 搜索筛选区 -->
+        <div class="filter-section">
+            <div class="filter-row">
+                <div class="filter-item">
+                    <label>表单名称：<span class="note-marker">1</span></label>
+                    <input type="text" class="form-input" placeholder="请输入表单名称">
+                    <div class="field-note">表单名称：支持模糊搜索表单名称</div>
+                </div>
+                <div class="filter-item">
+                    <label>数据源类型：<span class="note-marker">2</span></label>
+                    <select class="form-select">
+                        <option>全部</option>
+                        <option>数据库</option>
+                        <option>集成平台</option>
+                        <option>内部服务</option>
+                    </select>
+                    <div class="field-note">枚举值为数据库、集成平台、内部服务</div>
+                </div>
+                <div class="filter-item">
+                    <label>状态：<span class="note-marker">3</span></label>
+                    <select class="form-select">
+                        <option>全部</option>
+                        <option>草稿</option>
+                        <option>发布</option>
+                    </select>
+                    <div class="field-note">表单描述：支持模糊搜索表单描述</div>
+                </div>
+            </div>
+            <div class="filter-actions">
+                <button class="btn btn-primary">
+                    <span class="note-marker">20</span>搜索
+                </button>
+                <button class="btn btn-default">
+                    <span class="note-marker">21</span>重置
+                </button>
+                <div class="field-note">点击"搜索"下方列表根据上方查询项联动显示筛选后数据</div>
+                <div class="field-note">点击"重置"查询项恢复初始状态，下方列表内容根据初始化查询项刷新显示</div>
+            </div>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="action-bar">
+            <button class="btn btn-primary" data-action="add-form">
+                <span class="note-marker">4</span>新增
+            </button>
+            <button class="btn btn-default">
+                <span class="note-marker">5</span>本地导入
+            </button>
+            <button class="btn btn-default" disabled>
+                <span class="note-marker">6</span>批量删除
+            </button>
+        </div>
+
+        <!-- 数据表格 -->
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" class="select-all"></th>
+                        <th>表单名称<span class="note-marker">22</span></th>
+                        <th>表单描述<span class="note-marker">23</span></th>
+                        <th>所属机构<span class="note-marker">24</span></th>
+                        <th>最后更新时间<span class="note-marker">25</span></th>
+                        <th>版本号<span class="note-marker">26</span></th>
+                        <th>状态<span class="note-marker">27</span></th>
+                        <th>引用<span class="note-marker">28</span></th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>项目立项申请表</td>
+                        <td>用于项目立项申请</td>
+                        <td>7化建-北海分公司-施工项目部</td>
+                        <td>2025/10/25 14:30</td>
+                        <td>v1.0, v2.0</td>
+                        <td><span class="badge badge-published">已发布</span></td>
+                        <td>OA系统/项目管理</td>
+                        <td>
+                            <a href="#" class="link-btn" data-action="edit-form">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                            <a href="#" class="link-btn">版本管理</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>请假申请单</td>
+                        <td>员工请假申请</td>
+                        <td>7化建-泸州分公司</td>
+                        <td>2025/10/24 10:15</td>
+                        <td>v1.0</td>
+                        <td><span class="badge badge-draft">草稿</span></td>
+                        <td>—</td>
+                        <td>
+                            <a href="#" class="link-btn" data-action="edit-form">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                            <a href="#" class="link-btn">版本管理</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>费用报销单</td>
+                        <td>员工费用报销</td>
+                        <td>7化建</td>
+                        <td>2025/10/23 16:45</td>
+                        <td>v1.0, v1.1, v2.0</td>
+                        <td><span class="badge badge-published">已发布</span></td>
+                        <td>财务系统/报销管理</td>
+                        <td>
+                            <a href="#" class="link-btn" data-action="edit-form">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                            <a href="#" class="link-btn">版本管理</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 原型说明 -->
+        <div class="prototype-notes">
+            <h3>原型说明：</h3>
+            
+            <div class="note-section">
+                <h4>页面名称：表单管理</h4>
+                <p><strong>页面描述：</strong>列表页，管理已创建的表单</p>
+                <p><strong>功能应用：</strong>创建和管理表单，支持版本管理和表单引用追踪</p>
+            </div>
+
+            <div class="note-section">
+                <h4>列表显示说明</h4>
+                <ul>
+                    <li>1.1 无数据时，显示为空，提示语：暂无数据</li>
+                    <li>1.2 每页最多显示10条信息，超出翻页</li>
+                    <li>1.3 按表单最后更新时间倒序显示</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>注释说明</h4>
+                
+                <p><strong><span class="note-marker">1</span> 表单名称（筛选）：</strong></p>
+                <ul>
+                    <li>表单名称：支持模糊搜索表单名称</li>
+                </ul>
+
+                <p><strong><span class="note-marker">2</span> 数据源类型（筛选）：</strong></p>
+                <ul>
+                    <li>枚举值为数据库、集成平台、内部服务</li>
+                </ul>
+
+                <p><strong><span class="note-marker">3</span> 状态（筛选）：</strong></p>
+                <ul>
+                    <li>表单描述：支持模糊搜索表单描述</li>
+                </ul>
+
+                <p><strong><span class="note-marker">4</span> 新增：</strong></p>
+                <ul>
+                    <li>点击"新增"浮层显示：新增表单的弹框，详见新增表单的弹框说明</li>
+                </ul>
+
+                <p><strong><span class="note-marker">5</span> 本地导入：</strong></p>
+                <ul>
+                    <li>本地导入：支持本地文件导入</li>
+                    <li>1、支持文件格式：csv、json、xml、SQL、excel、Parquet/ORC</li>
+                    <li>2、导入时需判断：文件中的数据和数据库定义的数据类型是否一致，若不一致则报错提示：导入文件和数据库数据类型需一致</li>
+                    <li>3、其他提示：开发阶段定义提示文案和导入模版</li>
+                </ul>
+
+                <p><strong><span class="note-marker">6</span> 批量删除：</strong></p>
+                <ul>
+                    <li>批量删除：</li>
+                    <li>1、初始状态为置灰不可点击，列表勾选数据后按钮高亮</li>
+                    <li>2、点击后弹框提示：删除后建表需手动新建字段，确定删除？ 取消 确定</li>
+                    <li>（1）点击"取消"关闭弹框</li>
+                    <li>（2）点击"确定"逻辑：</li>
+                    <li>a. 需判断所选表单是否被使用，若被使用则不可删除，提示（多个表用","分隔）：{表单名称}已被使用，不可删除</li>
+                    <li>b. 若可删除则删除所选字段并关闭弹框，删除成功后刷新页面并提示：删除成功</li>
+                </ul>
+
+                <p><strong><span class="note-marker">7</span> 保存并下一步：</strong></p>
+                <ul>
+                    <li>点击"保存"需判断：</li>
+                    <li>1、必填字段是否已填，若未填则在字段下方提示：</li>
+                    <li>（1）若为输入框则提示：请录入{字段名}</li>
+                    <li>（2）若为选择框则提示：请选择{字段名}</li>
+                    <li>2、保存成功关闭弹框并进入表单编辑器页面</li>
+                </ul>
+
+                <p><strong><span class="note-marker">8</span> * 数据源类型：</strong></p>
+                <ul>
+                    <li>枚举值为数据库、集成平台、内部服务</li>
+                </ul>
+
+                <p><strong><span class="note-marker">9</span> 数据源：</strong></p>
+                <ul>
+                    <li>1、数据源类型为集成平台，则此处显示数据源管理已生成且未删除、数据源类型为集成平台的数据源</li>
+                    <li>2、数据源类型为数据库，则此处显示选择数据源管理已生成且未删除、数据源类型为数据库的数据源</li>
+                    <li>3、未选择数据源类型时此处不可选择，需提示：请选择数据源类型</li>
+                </ul>
+
+                <p><strong><span class="note-marker">10</span> 取消：</strong></p>
+                <ul>
+                    <li>点击"取消"关闭弹框</li>
+                </ul>
+
+                <p><strong><span class="note-marker">11</span> 保存：</strong></p>
+                <ul>
+                    <li>点击"保存"需判断：</li>
+                    <li>1、必填字段是否已填，若未填则在字段下方提示：</li>
+                    <li>（1）若为输入框则提示：请录入{字段名}</li>
+                    <li>（2）若为选择框则提示：请选择{字段名}</li>
+                    <li>2、保存成功关闭弹框，显示新增表单</li>
+                </ul>
+
+                <p><strong><span class="note-marker">12</span> ? 字段名规则：</strong></p>
+                <ul>
+                    <li>显示文案为：字段名支持字母、数字、下划线，而且必须以英文字母开头(如field4)。</li>
+                </ul>
+
+                <p><strong><span class="note-marker">13</span> 跳过：</strong></p>
+                <ul>
+                    <li>点击"跳过"关闭弹框，进入表单编辑器页面</li>
+                </ul>
+
+                <p><strong><span class="note-marker">14</span> 数据库实体模型：</strong></p>
+                <ul>
+                    <li>数据来源为数据库时，此处取值为所选数据源的数据；未选择数据源时此处不可选择，需提示：请选择数据源</li>
+                </ul>
+
+                <p><strong><span class="note-marker">15</span> 取消：</strong></p>
+                <ul>
+                    <li>点击"取消"关闭弹框</li>
+                </ul>
+
+                <p><strong><span class="note-marker">16</span> url：</strong></p>
+                <ul>
+                    <li>支持输入接口链接</li>
+                </ul>
+
+                <p><strong><span class="note-marker">17</span> 入参：</strong></p>
+                <ul>
+                    <li>支持输入接口参数</li>
+                </ul>
+
+                <p><strong><span class="note-marker">18</span> 引用：</strong></p>
+                <ul>
+                    <li>引用：支持模糊搜索表单描述</li>
+                </ul>
+
+                <p><strong><span class="note-marker">19</span> 表单描述（筛选）：</strong></p>
+                <ul>
+                    <li>表单描述：支持表单描述的模糊筛选</li>
+                </ul>
+
+                <p><strong><span class="note-marker">20</span> 搜索：</strong></p>
+                <ul>
+                    <li>点击"搜索"下方列表根据上方查询项联动显示筛选后数据</li>
+                </ul>
+
+                <p><strong><span class="note-marker">21</span> 重置：</strong></p>
+                <ul>
+                    <li>点击"重置"查询项恢复初始状态，下方列表内容根据初始化查询项刷新显示</li>
+                </ul>
+
+                <p><strong><span class="note-marker">22</span> 表单名称（列）：</strong></p>
+                <ul>
+                    <li>表单名称：新增/编辑时录入的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">23</span> 表单描述（列）：</strong></p>
+                <ul>
+                    <li>表单描述：新增/编辑时录入的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">24</span> 所属机构：</strong></p>
+                <ul>
+                    <li>所属机构：新增/编辑时选择的信息，显示所选级联数据的完整数据，如选择的为7化建-北海分公司-施工项目部，则显示完全</li>
+                </ul>
+
+                <p><strong><span class="note-marker">25</span> 最后更新时间（表单）：</strong></p>
+                <ul>
+                    <li>取值为表单对应的版本最后更新时间，各版本之间取最近的时间</li>
+                </ul>
+
+                <p><strong><span class="note-marker">26</span> 版本号：</strong></p>
+                <ul>
+                    <li>显示：该表单已生成且未删除的版本号</li>
+                </ul>
+
+                <p><strong><span class="note-marker">27</span> 状态（列）：</strong></p>
+                <ul>
+                    <li>显示版本对应的状态</li>
+                </ul>
+
+                <p><strong><span class="note-marker">28</span> 引用（列）：</strong></p>
+                <ul>
+                    <li>显示表单对应的版本被使用的应用和模块</li>
+                </ul>
+
+                <p><strong><span class="note-marker">29</span> 最后更新时间（版本）：</strong></p>
+                <ul>
+                    <li>取值为该版本的最后更新时间</li>
+                </ul>
+
+                <p><strong><span class="note-marker">30</span> 新增模型：</strong></p>
+                <ul>
+                    <li>该弹框的数据交互和新增模型一致，保存后显示新增表单的弹框</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

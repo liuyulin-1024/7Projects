@@ -1,0 +1,268 @@
+<!-- 数据源管理页面 -->
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">数据源管理</h1>
+        <div class="breadcrumb">
+            <span>平台概览</span>
+            <span class="separator">></span>
+            <span class="active">数据源管理</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <!-- 搜索筛选区 -->
+        <div class="filter-section">
+            <div class="filter-row">
+                <div class="filter-item">
+                    <label>数据源名称：<span class="note-marker">1</span></label>
+                    <input type="text" class="form-input" placeholder="请输入数据库字段名称">
+                    <div class="field-note">筛选项：支持模糊搜索数据库字段</div>
+                </div>
+                <div class="filter-item">
+                    <label>数据库类型：<span class="note-marker">4</span></label>
+                    <select class="form-select">
+                        <option>全部</option>
+                        <option>MySQL</option>
+                        <option>Oracle</option>
+                        <option>PostgreSQL</option>
+                        <option>OpenGauss</option>
+                        <option>ClickHouse</option>
+                        <option>MongoDB</option>
+                    </select>
+                    <div class="field-note">枚举值为数据库、集成平台、内部服务</div>
+                </div>
+                <div class="filter-item">
+                    <label>数据库库名：<span class="note-marker">12</span></label>
+                    <input type="text" class="form-input" placeholder="请输入数据库字段名称">
+                </div>
+            </div>
+            <div class="filter-actions">
+                <button class="btn btn-primary">
+                    <span class="note-marker">2</span>搜索
+                </button>
+                <button class="btn btn-default">
+                    <span class="note-marker">3</span>重置
+                </button>
+                <div class="field-note">点击"搜索"下方列表根据上方查询项联动显示筛选后数据</div>
+                <div class="field-note">点击"重置"查询项恢复初始状态，下方列表内容根据初始化查询项刷新显示</div>
+            </div>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="action-bar">
+            <button class="btn btn-primary" data-action="add-datasource">
+                <span class="note-marker">5</span>新增
+            </button>
+            <button class="btn btn-default" disabled>
+                <span class="note-marker">6</span>批量删除
+            </button>
+        </div>
+
+        <!-- 数据表格 -->
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" class="select-all"></th>
+                        <th>数据源名称</th>
+                        <th>数据源类型</th>
+                        <th>应用名称/应用描述<span class="note-marker">13</span></th>
+                        <th>数据库库名<span class="note-marker">7</span></th>
+                        <th>数据库类型<span class="note-marker">9</span></th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>xinOA</td>
+                        <td>数据库</td>
+                        <td>OA</td>
+                        <td>dev_start_time</td>
+                        <td>mysql</td>
+                        <td>
+                            <a href="#" class="link-btn">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>hrdata</td>
+                        <td>数据库</td>
+                        <td>门户</td>
+                        <td>qfrq</td>
+                        <td>oracle</td>
+                        <td>
+                            <a href="#" class="link-btn">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>pudata</td>
+                        <td>集成平台</td>
+                        <td>OA</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>
+                            <a href="#" class="link-btn">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>test_100_zhushuju</td>
+                        <td>集成平台</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>
+                            <a href="#" class="link-btn">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>te12034tre</td>
+                        <td>数据库</td>
+                        <td>脚手架</td>
+                        <td>create_time</td>
+                        <td>mysql</td>
+                        <td>
+                            <a href="#" class="link-btn">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>localhost</td>
+                        <td>数据库</td>
+                        <td>OA</td>
+                        <td>create_by</td>
+                        <td>oracle</td>
+                        <td>
+                            <a href="#" class="link-btn">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>yu12034tre</td>
+                        <td>数据库</td>
+                        <td>OA</td>
+                        <td>total_work_hour</td>
+                        <td>oracle</td>
+                        <td>
+                            <a href="#" class="link-btn">编辑</a>
+                            <a href="#" class="link-btn">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 原型说明 -->
+        <div class="prototype-notes">
+            <h3>原型说明：</h3>
+            
+            <div class="note-section">
+                <h4>页面名称：数据源管理</h4>
+                <p><strong>页面描述：</strong>列表页，管理已创建的可用于建模的数据源</p>
+                <p><strong>功能应用：</strong>新建表单和数据库建模选择数据源时，选择的数据来源为该板块维护的信息</p>
+            </div>
+
+            <div class="note-section">
+                <h4>列表显示说明</h4>
+                <ul>
+                    <li>1.1 无数据时，显示为空，提示语：暂无数据</li>
+                    <li>1.2 每页最多显示10条信息，超出翻页</li>
+                    <li>1.3 按数据源的更新时间倒序显示</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>列表操作说明</h4>
+                <ul>
+                    <li>2.1 编辑：点击"编辑"浮层显示：编辑数据源，详见编辑数据源的弹框说明（和新增的一致）</li>
+                    <li>2.2 删除：点击后弹框提示：删除后建模无法选择该数据源，确定删除？ 取消 确定
+                        <br>（点击"取消"关闭弹框，点击"确定"逻辑删除所选字段并关闭弹框，删除成功后刷新页面并提示：删除成功）</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>注释说明</h4>
+                
+                <p><strong><span class="note-marker">1</span> 数据源名称：</strong></p>
+                <ul>
+                    <li>筛选项：支持模糊搜索数据源名称</li>
+                </ul>
+
+                <p><strong><span class="note-marker">2</span> 搜索：</strong></p>
+                <ul>
+                    <li>点击"搜索"下方列表根据上方查询项联动显示筛选后数据</li>
+                </ul>
+
+                <p><strong><span class="note-marker">3</span> 重置：</strong></p>
+                <ul>
+                    <li>点击"重置"查询项恢复初始状态，下方列表内容根据初始化查询项刷新显示</li>
+                </ul>
+
+                <p><strong><span class="note-marker">4</span> 数据库类型：</strong></p>
+                <ul>
+                    <li>筛选项：默认显示全部，枚举值为：MySQL、Oracle、PostgreSQL、OpenGauss、ClickHouse、MongoDB</li>
+                </ul>
+
+                <p><strong><span class="note-marker">5</span> 新增：</strong></p>
+                <ul>
+                    <li>点击"新增"浮层显示：新增数据源的弹框，详见新增数据源的弹框说明</li>
+                </ul>
+
+                <p><strong><span class="note-marker">6</span> 批量删除：</strong></p>
+                <ul>
+                    <li>批量删除：</li>
+                    <li>1、初始状态为置灰不可点击，列表勾选数据后按钮高亮</li>
+                    <li>2、点击后弹框提示：删除后建模无法选择该数据源，确定删除？ 取消 确定</li>
+                    <li>（点击"取消"关闭弹框，点击"确定"逻辑删除所选字段并关闭弹框，删除成功后刷新页面并提示：删除成功）</li>
+                </ul>
+
+                <p><strong><span class="note-marker">7</span> 数据库库名（列名）：</strong></p>
+                <ul>
+                    <li>数据库字段名称：新增/编辑时录入的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">8</span> 字段显示名：</strong></p>
+                <ul>
+                    <li>字段显示名：新增/编辑时录入的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">9</span> 数据库类型（列名）：</strong></p>
+                <ul>
+                    <li>数据库字段类型：新增/编辑时选择的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">10</span> 字段长度：</strong></p>
+                <ul>
+                    <li>字段长度：新增/编辑时录入的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">11</span> 小数点位数：</strong></p>
+                <ul>
+                    <li>小数点位数：新增/编辑时选择的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">12</span> 数据库库名：</strong></p>
+                <ul>
+                    <li>筛选项：支持模糊搜索数据库名</li>
+                </ul>
+
+                <p><strong><span class="note-marker">13</span> 应用名称/应用描述：</strong></p>
+                <ul>
+                    <li>1、应用名称有值则显示应用名称</li>
+                    <li>2、应用描述有值则显示应用描述</li>
+                    <li>3、以上都为空，则显示"-"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

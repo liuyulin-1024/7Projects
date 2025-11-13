@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单引擎管理系统</title>
+    <style>
+        /* 通用样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1890ff;
+            --success-color: #52c41a;
+            --warning-color: #faad14;
+            --danger-color: #ff4d4f;
+            --text-color: #333;
+            --text-secondary: #666;
+            --border-color: #d9d9d9;
+            --bg-color: #f0f2f5;
+            --white: #fff;
+            --header-height: 60px;
+            --sidebar-width: 200px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5715;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 6px 15px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5715;
+            text-align: center;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: none;
+            background-color: var(--white);
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            color: var(--white);
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-default {
+            color: var(--text-color);
+            background-color: var(--white);
+            border-color: var(--border-color);
+        }
+
+        .btn-sm {
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+
+        /* 表单元素 */
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 6px 11px;
+            font-size: 14px;
+            line-height: 1.5715;
+            color: var(--text-color);
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        /* 表格样式 */
+        .table-container {
+            background-color: var(--white);
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .data-table thead {
+            background-color: #fafafa;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .data-table th {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .data-table tbody tr:hover {
+            background-color: #fafafa;
+        }
+
+        /* 徽章样式 */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 2px;
+        }
+
+        .badge-new {
+            color: #52c41a;
+            background-color: #f6ffed;
+            border: 1px solid #b7eb8f;
+        }
+
+        .badge-update {
+            color: #1890ff;
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+        }
+
+        .badge-published {
+            color: #52c41a;
+            background-color: #f6ffed;
+            border: 1px solid #b7eb8f;
+        }
+
+        .badge-draft {
+            color: #faad14;
+            background-color: #fffbe6;
+            border: 1px solid #ffe58f;
+        }
+
+        /* 链接样式 */
+        .link-btn {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .link-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* 注释标记 */
+        .note-marker {
+            display: inline-block;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 6px;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: center;
+            color: var(--white);
+            background-color: #ff4d4f;
+            border-radius: 10px;
+            margin: 0 4px;
+        }
+
+        /* 字段注释 */
+        .field-note {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* 布局样式 */
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background-color: var(--white);
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .logo img {
+            height: 32px;
+            margin-right: 12px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-container {
+            display: flex;
+            margin-top: var(--header-height);
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--white);
+            border-right: 1px solid #f0f0f0;
+            overflow-y: auto;
+            position: fixed;
+            left: 0;
+            top: var(--header-height);
+            bottom: 0;
+        }
+
+        .nav-menu {
+            padding: 16px 0;
+        }
+
+        .nav-section {
+            margin-bottom: 24px;
+        }
+
+        .nav-title {
+            padding: 8px 24px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-item a {
+            display: block;
+            padding: 10px 24px 10px 40px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-item a:hover,
+        .nav-item a.active {
+            color: var(--primary-color);
+            background-color: #e6f7ff;
+        }
+
+        .content-area {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 24px;
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        .page-container {
+            background-color: var(--white);
+            border-radius: 4px;
+            padding: 24px;
+            display: none;
+        }
+
+        .page-container.active {
+            display: block;
+        }
+
+        .page-header {
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .page-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb .active {
+            color: var(--text-color);
+        }
+
+        .separator {
+            margin: 0 8px;
+            color: var(--text-secondary);
+        }
+
+        .page-content {
+            margin-top: 20px;
+        }
+
+        /* 筛选区域 */
+        .filter-section {
+            background-color: #fafafa;
+            padding: 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .filter-item {
+            flex: 1;
+        }
+
+        .filter-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* 操作栏 */
+        .action-bar {
+            margin-bottom: 16px;
+            display: flex;
+            gap: 8px;
+        }
+
+        /* 原型说明 */
+        .prototype-notes {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .prototype-notes h3 {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .prototype-notes h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .note-section {
+            margin-bottom: 20px;
+        }
+
+        .note-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .note-section li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .note-section li:before {
+            content: "•";
+            position: absolute;
+            left: -16px;
+        }
+
+        .note-item {
+            margin-bottom: 8px;
+        }
+
+        .notes-section {
+            margin-top: 40px;
+        }
+
+        .document-title {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .document-title h2 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* 加载状态 */
+        .page-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            color: var(--text-secondary);
+        }
+
+        .version-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 12px;
+            background-color: #e6f7ff;
+            color: #1890ff;
+            border-radius: 2px;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="top-header">
+        <div class="logo">
+            <span>开发平台</span>
+        </div>
+        <div class="user-info">
+            <span>管理员</span>
+        </div>
+    </header>
+
+    <!-- 主容器 -->
+    <div class="main-container">
+        <!-- 左侧导航菜单 -->
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <div class="nav-title">表单引擎</div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" data-page="revision-record" class="active">修订记录</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-page="field-template">字段模版库</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-page="datasource-manage">数据源管理</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-page="form-manage">表单管理</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-page="form-editor">表单编辑器</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-page="form-style">表单样式管理</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" data-page="function-library">函数库</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-title">组件库</div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" data-page="component-library">组件库</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 右侧内容区域 -->
+        <main class="content-area" id="contentArea">
+            <!-- 修订记录页面 -->
+            <div class="page-container active" id="page-revision-record">
+                <div class="page-header">
+                    <h1 class="page-title">修订记录</h1>
+                    <div class="breadcrumb">
+                        <span>平台概览</span>
+                        <span class="separator">></span>
+                        <span class="active">修订记录</span>
+                    </div>
+                </div>
+
+                <div class="page-content">
+                    <div class="document-title">
+                        <h2>文档修订记录</h2>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="data-table revision-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%;">版本号</th>
+                                    <th style="width: 30%;">内容</th>
+                                    <th style="width: 15%;">属性</th>
+                                    <th style="width: 20%;">修订时间</th>
+                                    <th style="width: 15%;">修订人</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>v1.0</td>
+                                    <td>全模块</td>
+                                    <td><span class="badge badge-new">新增</span></td>
+                                    <td>2025/10/16</td>
+                                    <td>张露芸</td>
+                                </tr>
+                                <tr>
+                                    <td>v2.0</td>
+                                    <td>增加显示模版管理、数据源管理、表单样式管理，优化建模管理</td>
+                                    <td><span class="badge badge-update">更新</span></td>
+                                    <td>2025/10/23</td>
+                                    <td>张露芸</td>
+                                </tr>
+                                <tr>
+                                    <td>v2.0</td>
+                                    <td>字段模版管理：从主数据同步，不新增和编辑</td>
+                                    <td><span class="badge badge-update">更新</span></td>
+                                    <td>2025/10/23</td>
+                                    <td>张露芸</td>
+                                </tr>
+                                <tr>
+                                    <td>v2.0</td>
+                                    <td>表单管理：版本管理的交互优化</td>
+                                    <td><span class="badge badge-update">更新</span></td>
+                                    <td>2025/10/23</td>
+                                    <td>张露芸</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="notes-section" style="margin-top: 40px;">
+                        <h3>页面说明</h3>
+                        <div class="note-item">
+                            <strong>页面名称：</strong>修订记录
+                        </div>
+                        <div class="note-item">
+                            <strong>页面描述：</strong>展示表单引擎原型的修订历史记录
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 字段模版库页面 -->
+            <div class="page-container" id="page-field-template">
+                <div class="page-header">
+                    <h1 class="page-title">字段模版库</h1>
+                    <div class="breadcrumb">
+                        <span>平台概览</span>
+                        <span class="separator">></span>
+                        <span class="active">字段模版库</span>
+                    </div>
+                </div>
+
+                <div class="page-content">
+                    <div class="filter-section">
+                        <div class="filter-row">
+                            <div class="filter-item">
+                                <label>数据库字段名称：<span class="note-marker">1</span></label>
+                                <input type="text" class="form-input" placeholder="请输入数据库字段名称">
+                                <div class="field-note">筛选项：支持模糊搜索数据库字段</div>
+                            </div>
+                            <div class="filter-item">
+                                <label>字段显示名：<span class="note-marker">2</span></label>
+                                <input type="text" class="form-input" placeholder="请输入字段显示名">
+                                <div class="field-note">筛选项：支持模糊搜索字段显示名</div>
+                            </div>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-primary"><span class="note-marker">3</span>搜索</button>
+                            <button class="btn btn-default"><span class="note-marker">4</span>重置</button>
+                        </div>
+                    </div>
+
+                    <div class="action-bar">
+                        <button class="btn btn-primary"><span class="note-marker">2</span>同步</button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" class="select-all"></th>
+                                    <th>数据库字段名称<span class="note-marker">5</span></th>
+                                    <th>字段显示名<span class="note-marker">6</span></th>
+                                    <th>数据库字段类型<span class="note-marker">8</span></th>
+                                    <th>字段长度<span class="note-marker">9</span></th>
+                                    <th>小数点位数<span class="note-marker">10</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>dev_start_time</td>
+                                    <td>开始开发时间</td>
+                                    <td>字符串</td>
+                                    <td>64</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>qfrq</td>
+                                    <td>签发日期</td>
+                                    <td>日期</td>
+                                    <td>32</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>test_start_time</td>
+                                    <td>测试开始时间</td>
+                                    <td>时间</td>
+                                    <td>64</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>update_by</td>
+                                    <td>更新人</td>
+                                    <td>文本</td>
+                                    <td>64</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>create_time</td>
+                                    <td>创建时间</td>
+                                    <td>时间</td>
+                                    <td>64</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>create_by</td>
+                                    <td>创建人</td>
+                                    <td>文本</td>
+                                    <td>64</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>total_work_hour</td>
+                                    <td>开发总工时</td>
+                                    <td>字符串</td>
+                                    <td>64</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="prototype-notes">
+                        <h3>原型说明：</h3>
+                        
+                        <div class="note-section">
+                            <h4>页面名称：字段模版库</h4>
+                            <p><strong>页面描述：</strong>列表页，管理已创建的可用于在数据库表里添加的数据库模版字段</p>
+                            <p><strong>功能应用：</strong>新建/编辑表单时可导入字段模版，无需每次添加字段录入信息</p>
+                        </div>
+
+                        <div class="note-section">
+                            <h4>列表显示说明 <span class="note-marker">1</span></h4>
+                            <ul>
+                                <li>1.1 无数据时，显示为空，提示语：暂无数据</li>
+                                <li>1.2 每页最多显示10条信息，超出翻页</li>
+                                <li>1.3 每条数据按更新时间倒序显示</li>
+                            </ul>
+                        </div>
+
+                        <div class="note-section">
+                            <h4>同步说明 <span class="note-marker">2</span></h4>
+                            <ul>
+                                <li>1.1 点击"同步"从主数据服务拉取数据</li>
+                                <li>1.2 待确认和主数据服务的数据同步方式（需满足主数据数据新增和更新时自动同步字段模版库）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 其他页面... -->
+            <div class="page-container" id="page-datasource-manage">
+                <div class="page-header">
+                    <h1 class="page-title">数据源管理</h1>
+                </div>
+                <div class="page-content">
+                    <p>数据源管理页面内容... (演示版本)</p>
+                </div>
+            </div>
+
+            <div class="page-container" id="page-form-manage">
+                <div class="page-header">
+                    <h1 class="page-title">表单管理</h1>
+                </div>
+                <div class="page-content">
+                    <p>表单管理页面内容... (演示版本)</p>
+                </div>
+            </div>
+
+            <div class="page-container" id="page-form-editor">
+                <div class="page-header">
+                    <h1 class="page-title">表单编辑器</h1>
+                </div>
+                <div class="page-content">
+                    <p>表单编辑器页面内容... (演示版本)</p>
+                </div>
+            </div>
+
+            <div class="page-container" id="page-form-style">
+                <div class="page-header">
+                    <h1 class="page-title">表单样式管理</h1>
+                </div>
+                <div class="page-content">
+                    <p>表单样式管理页面内容... (演示版本)</p>
+                </div>
+            </div>
+
+            <div class="page-container" id="page-function-library">
+                <div class="page-header">
+                    <h1 class="page-title">函数库</h1>
+                </div>
+                <div class="page-content">
+                    <p>函数库页面内容... (演示版本)</p>
+                </div>
+            </div>
+
+            <div class="page-container" id="page-component-library">
+                <div class="page-header">
+                    <h1 class="page-title">组件库</h1>
+                </div>
+                <div class="page-content">
+                    <p>组件库页面内容... (演示版本)</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // 页面切换逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-item a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const page = this.getAttribute('data-page');
+                    
+                    // 移除所有活动状态
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 隐藏所有页面
+                    const pages = document.querySelectorAll('.page-container');
+                    pages.forEach(p => p.classList.remove('active'));
+                    
+                    // 显示选中的页面
+                    const targetPage = document.getElementById('page-' + page);
+                    if (targetPage) {
+                        targetPage.classList.add('active');
+                    }
+                });
+            });
+
+            // 绑定全选复选框
+            const selectAllCheckboxes = document.querySelectorAll('.select-all');
+            selectAllCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const table = this.closest('table');
+                    const checkboxes = table.querySelectorAll('tbody input[type="checkbox"]');
+                    checkboxes.forEach(cb => {
+                        cb.checked = this.checked;
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

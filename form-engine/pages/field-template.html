@@ -1,0 +1,220 @@
+<!-- 字段模版库页面 -->
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">字段模版库</h1>
+        <div class="breadcrumb">
+            <span>平台概览</span>
+            <span class="separator">></span>
+            <span class="active">字段模版库</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <!-- 搜索筛选区 -->
+        <div class="filter-section">
+            <div class="filter-row">
+                    <div class="filter-item">
+                        <label>数据库字段名称：<span class="note-marker">1</span></label>
+                        <input type="text" class="form-input" placeholder="请输入数据库字段名称">
+                        <div class="field-note">筛选项：支持模糊搜索数据库字段</div>
+                    </div>
+                    <div class="filter-item">
+                        <label>字段显示名：<span class="note-marker">2</span></label>
+                        <input type="text" class="form-input" placeholder="请输入字段显示名">
+                        <div class="field-note">筛选项：支持模糊搜索字段显示名</div>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn btn-primary">
+                        <span class="note-marker">3</span>搜索
+                    </button>
+                    <button class="btn btn-default">
+                        <span class="note-marker">4</span>重置
+                    </button>
+                    <div class="field-note">点击"搜索"下方列表根据上方查询项联动显示筛选后数据</div>
+                    <div class="field-note">点击"重置"查询项恢复初始状态，下方列表内容根据初始化查询项刷新显示</div>
+                </div>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="action-bar">
+                <button class="btn btn-primary">
+                    <span class="note-marker">2</span>同步
+                </button>
+                <button class="btn btn-default" disabled>
+                    <span class="note-marker">11</span>批量删除
+                </button>
+            </div>
+
+            <!-- 数据表格 -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" class="select-all"></th>
+                            <th>数据库字段名称<span class="note-marker">5</span></th>
+                            <th>字段显示名<span class="note-marker">6</span></th>
+                            <th>主/明细表字段<span class="note-marker">7</span></th>
+                            <th>数据库字段类型<span class="note-marker">8</span></th>
+                            <th>字段长度<span class="note-marker">9</span></th>
+                            <th>小数点位数<span class="note-marker">10</span></th>
+                        </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>dev_start_time</td>
+                        <td>开始开发时间</td>
+                        <td>主表</td>
+                        <td>字符串</td>
+                        <td>64</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>qfrq</td>
+                        <td>签发日期</td>
+                        <td>主表</td>
+                        <td>日期</td>
+                        <td>32</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>test_start_time</td>
+                        <td>测试开始时间</td>
+                        <td>明细表</td>
+                        <td>时间</td>
+                        <td>64</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>update_by</td>
+                        <td>更新人</td>
+                        <td>主表</td>
+                        <td>文本</td>
+                        <td>64</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>create_time</td>
+                        <td>创建时间</td>
+                        <td>主表</td>
+                        <td>时间</td>
+                        <td>64</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>create_by</td>
+                        <td>创建人</td>
+                        <td>明细表</td>
+                        <td>文本</td>
+                        <td>64</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>total_work_hour</td>
+                        <td>开发总工时</td>
+                        <td>主表</td>
+                        <td>字符串</td>
+                        <td>64</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 原型说明 -->
+        <div class="prototype-notes">
+            <h3>原型说明：</h3>
+            
+            <div class="note-section">
+                <h4>页面名称：字段模版库</h4>
+                <p><strong>页面描述：</strong>列表页，管理已创建的可用于在数据库表里添加的数据库模版字段</p>
+                <p><strong>功能应用：</strong>新建/编辑表单时可导入字段模版，无需每次添加字段录入信息</p>
+            </div>
+
+            <div class="note-section">
+                <h4>列表显示说明 <span class="note-marker">1</span></h4>
+                <ul>
+                    <li>1.1 无数据时，显示为空，提示语：暂无数据</li>
+                    <li>1.2 每页最多显示10条信息，超出翻页</li>
+                    <li>1.3 每条数据按更新时间倒序显示</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>同步说明 <span class="note-marker">2</span></h4>
+                <ul>
+                    <li>1.1 点击"同步"从主数据服务拉取数据</li>
+                    <li>1.2 待确认和主数据服务的数据同步方式（需满足主数据数据新增和更新时自动同步字段模版库）</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>注释说明</h4>
+                
+                <p><strong><span class="note-marker">1</span> 数据库字段名称：</strong></p>
+                <ul>
+                    <li>筛选项：支持模糊搜索数据库字段</li>
+                </ul>
+
+                <p><strong><span class="note-marker">2</span> 字段显示名：</strong></p>
+                <ul>
+                    <li>筛选项：支持模糊搜索字段显示名</li>
+                </ul>
+
+                <p><strong><span class="note-marker">3</span> 搜索：</strong></p>
+                <ul>
+                    <li>点击"搜索"下方列表根据上方查询项联动显示筛选后数据</li>
+                </ul>
+
+                <p><strong><span class="note-marker">4</span> 重置：</strong></p>
+                <ul>
+                    <li>点击"重置"查询项恢复初始状态，下方列表内容根据初始化查询项刷新显示</li>
+                </ul>
+
+                <p><strong><span class="note-marker">5</span> 数据库字段名称（列名）：</strong></p>
+                <ul>
+                    <li>数据库字段名称：新增/编辑时录入的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">6</span> 字段显示名（列名）：</strong></p>
+                <ul>
+                    <li>字段显示名：新增/编辑时录入的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">7</span> 主/明细表字段：</strong></p>
+                <ul>
+                    <li>主/明细表字段：新增/编辑时选择的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">8</span> 数据库字段类型（列名）：</strong></p>
+                <ul>
+                    <li>数据库字段类型：新增/编辑时选择的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">9</span> 字段长度（列名）：</strong></p>
+                <ul>
+                    <li>字段长度：新增/编辑时录入的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">10</span> 小数点位数（列名）：</strong></p>
+                <ul>
+                    <li>小数点位数：新增/编辑时选择的信息</li>
+                </ul>
+
+                <p><strong><span class="note-marker">11</span> 批量删除：</strong></p>
+                <ul>
+                    <li>点击后弹框提示：删除后建表需手动新建字段，确定删除？ 取消 确定</li>
+                    <li>（点击"取消"关闭弹框，点击"确定"逻辑删除所选字段并关闭弹框，删除成功后刷新页面并提示：删除成功）</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

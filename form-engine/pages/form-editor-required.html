@@ -1,0 +1,326 @@
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">组件必填条件-通用</h1>
+        <div class="breadcrumb">
+            <span>平台概览</span>
+            <span class="separator">></span>
+            <span>表单管理</span>
+            <span class="separator">></span>
+            <span>表单编辑器</span>
+            <span class="separator">></span>
+            <span class="active">组件必填条件</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="info-box">
+            <h3>必填条件说明</h3>
+            <p>必填条件用于根据表单中其他字段的值，动态控制当前字段是否为必填项。</p>
+            <p>支持多个条件组合，可以设置"且"（AND）或"或"（OR）的逻辑关系。</p>
+        </div>
+
+        <div class="form-section" style="margin-top: 20px;">
+            <h3>必填条件配置</h3>
+            
+            <div class="form-item">
+                <label>目标字段：<span style="color: red;">*</span></label>
+                <select class="form-select" style="width: 300px;">
+                    <option>请选择字段</option>
+                    <option>审批意见</option>
+                    <option>拒绝原因</option>
+                    <option>发票抬头</option>
+                </select>
+                <span style="margin-left: 10px; color: #999;">需要控制必填状态的字段</span>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>基础必填：</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="baseRequired" value="yes"> 始终必填</label>
+                    <label><input type="radio" name="baseRequired" value="no" checked> 始终非必填</label>
+                    <label><input type="radio" name="baseRequired" value="condition"> 根据条件决定</label>
+                </div>
+                <div style="margin-top: 5px; color: #999; font-size: 12px;">
+                    选择"根据条件决定"时，下方配置的条件生效
+                </div>
+            </div>
+
+            <div id="conditionSection" class="condition-section" style="margin-top: 20px;">
+                <div class="form-item">
+                    <label>条件逻辑：</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="logic" value="and" checked> 满足所有条件（AND）</label>
+                        <label><input type="radio" name="logic" value="or"> 满足任一条件（OR）</label>
+                    </div>
+                </div>
+
+                <!-- 条件列表 -->
+                <div style="margin-top: 15px;">
+                    <h4>条件规则 <button class="btn btn-sm btn-primary" style="margin-left: 10px;">➕ 添加条件</button></h4>
+                    
+                    <div class="condition-list">
+                        <!-- 条件1 -->
+                        <div class="condition-item" style="margin-bottom: 15px; padding: 15px; border: 1px solid #d9d9d9; border-radius: 4px; background: #fafafa;">
+                            <div class="condition-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <span style="font-weight: bold;">条件 1</span>
+                                <button class="btn btn-sm btn-danger">删除</button>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-item" style="flex: 1;">
+                                    <label>判断字段：</label>
+                                    <select class="form-select">
+                                        <option>请选择</option>
+                                        <option selected>审批结果</option>
+                                        <option>是否开发票</option>
+                                        <option>金额</option>
+                                    </select>
+                                </div>
+                                <div class="form-item" style="flex: 1;">
+                                    <label>判断条件：</label>
+                                    <select class="form-select">
+                                        <option selected>等于</option>
+                                        <option>不等于</option>
+                                        <option>大于</option>
+                                        <option>大于等于</option>
+                                        <option>小于</option>
+                                        <option>小于等于</option>
+                                        <option>包含</option>
+                                        <option>不包含</option>
+                                        <option>为空</option>
+                                        <option>不为空</option>
+                                    </select>
+                                </div>
+                                <div class="form-item" style="flex: 1;">
+                                    <label>判断值：</label>
+                                    <input type="text" class="form-input" value="拒绝" placeholder="请输入">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 条件2 -->
+                        <div class="condition-item" style="margin-bottom: 15px; padding: 15px; border: 1px solid #d9d9d9; border-radius: 4px; background: #fafafa;">
+                            <div class="condition-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <span style="font-weight: bold;">条件 2</span>
+                                <button class="btn btn-sm btn-danger">删除</button>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-item" style="flex: 1;">
+                                    <label>判断字段：</label>
+                                    <select class="form-select">
+                                        <option>请选择</option>
+                                        <option>审批结果</option>
+                                        <option selected>是否开发票</option>
+                                        <option>金额</option>
+                                    </select>
+                                </div>
+                                <div class="form-item" style="flex: 1;">
+                                    <label>判断条件：</label>
+                                    <select class="form-select">
+                                        <option selected>等于</option>
+                                        <option>不等于</option>
+                                        <option>大于</option>
+                                        <option>大于等于</option>
+                                        <option>小于</option>
+                                        <option>小于等于</option>
+                                        <option>包含</option>
+                                        <option>不包含</option>
+                                        <option>为空</option>
+                                        <option>不为空</option>
+                                    </select>
+                                </div>
+                                <div class="form-item" style="flex: 1;">
+                                    <label>判断值：</label>
+                                    <input type="text" class="form-input" value="是" placeholder="请输入">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>提示信息：</label>
+                <input type="text" class="form-input" value="请填写{字段名}" placeholder="如：请填写审批意见">
+                <div style="margin-top: 5px; color: #999; font-size: 12px;">
+                    必填验证失败时的提示信息，{字段名}会自动替换为实际字段名
+                </div>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>验证时机：</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="validateTiming" value="blur" checked> 失去焦点时</label>
+                    <label><input type="radio" name="validateTiming" value="submit"> 提交时</label>
+                    <label><input type="radio" name="validateTiming" value="realtime"> 实时验证</label>
+                </div>
+            </div>
+
+            <div class="form-actions" style="margin-top: 20px;">
+                <button class="btn btn-default">取消</button>
+                <button class="btn btn-primary">测试条件</button>
+                <button class="btn btn-primary">保存</button>
+            </div>
+        </div>
+
+        <!-- 必填示例 -->
+        <div class="form-section" style="margin-top: 30px;">
+            <h3>应用示例</h3>
+            
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">示例1：审批拒绝必填拒绝原因</h4>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>场景：</strong>审批结果为"拒绝"时，必须填写拒绝原因</p>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>配置：</strong></p>
+                <ul style="margin-bottom: 0; color: #666; font-size: 13px;">
+                    <li>目标字段：拒绝原因</li>
+                    <li>基础必填：根据条件决定</li>
+                    <li>条件：审批结果 等于 "拒绝"</li>
+                    <li>结果：当审批结果为"拒绝"时，拒绝原因为必填项</li>
+                </ul>
+            </div>
+
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">示例2：开发票必填发票信息</h4>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>场景：</strong>选择开发票时，必须填写发票抬头等信息</p>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>配置：</strong></p>
+                <ul style="margin-bottom: 0; color: #666; font-size: 13px;">
+                    <li>目标字段：发票抬头</li>
+                    <li>基础必填：根据条件决定</li>
+                    <li>条件：是否开发票 等于 "是"</li>
+                    <li>结果：当选择开发票时，发票抬头为必填项</li>
+                </ul>
+            </div>
+
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">示例3：大额支出必填审批</h4>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>场景：</strong>支出金额超过10000时，必须填写总经理审批意见</p>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>配置：</strong></p>
+                <ul style="margin-bottom: 0; color: #666; font-size: 13px;">
+                    <li>目标字段：总经理审批意见</li>
+                    <li>基础必填：根据条件决定</li>
+                    <li>条件：支出金额 大于 10000</li>
+                    <li>结果：当支出金额超过10000时，总经理审批意见为必填项</li>
+                </ul>
+            </div>
+
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">示例4：多条件组合（AND）</h4>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>场景：</strong>新客户且金额大于5000时，必须填写风险评估</p>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>配置：</strong></p>
+                <ul style="margin-bottom: 0; color: #666; font-size: 13px;">
+                    <li>目标字段：风险评估</li>
+                    <li>基础必填：根据条件决定</li>
+                    <li>条件逻辑：AND（满足所有条件）</li>
+                    <li>条件1：客户类型 等于 "新客户"</li>
+                    <li>条件2：合同金额 大于 5000</li>
+                    <li>结果：只有当是新客户且合同金额大于5000时，风险评估才是必填项</li>
+                </ul>
+            </div>
+
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">示例5：多条件组合（OR）</h4>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>场景：</strong>紧急或重要事项必须填写处理说明</p>
+                <p style="margin: 5px 0; color: #666; font-size: 13px;"><strong>配置：</strong></p>
+                <ul style="margin-bottom: 0; color: #666; font-size: 13px;">
+                    <li>目标字段：处理说明</li>
+                    <li>基础必填：根据条件决定</li>
+                    <li>条件逻辑：OR（满足任一条件）</li>
+                    <li>条件1：事项类型 等于 "紧急"</li>
+                    <li>条件2：事项类型 等于 "重要"</li>
+                    <li>结果：只要事项类型是"紧急"或"重要"，处理说明就是必填项</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 原型说明 -->
+        <div class="prototype-notes">
+            <h3>原型说明：</h3>
+            
+            <div class="note-section">
+                <h4>页面名称：组件必填条件-通用</h4>
+                <p><strong>页面描述：</strong>配置页面，设置组件的动态必填条件</p>
+                <p><strong>功能应用：</strong>在表单编辑器中，为需要条件必填的字段配置规则</p>
+            </div>
+
+            <div class="note-section">
+                <h4>配置说明</h4>
+                <ul>
+                    <li><strong>目标字段：</strong>必选，需要控制必填状态的字段</li>
+                    <li><strong>基础必填：</strong>
+                        <ul>
+                            <li>始终必填：字段始终为必填项，不考虑条件</li>
+                            <li>始终非必填：字段始终为非必填项，不考虑条件</li>
+                            <li>根据条件决定：根据下方配置的条件动态判断是否必填</li>
+                        </ul>
+                    </li>
+                    <li><strong>条件逻辑：</strong>
+                        <ul>
+                            <li>AND（且）：所有条件都满足时才必填</li>
+                            <li>OR（或）：任一条件满足时就必填</li>
+                        </ul>
+                    </li>
+                    <li><strong>条件规则：</strong>
+                        <ul>
+                            <li>判断字段：用于判断的字段</li>
+                            <li>判断条件：等于、不等于、大于、小于、包含、为空等</li>
+                            <li>判断值：用于比较的值</li>
+                        </ul>
+                    </li>
+                    <li><strong>支持的判断条件：</strong>
+                        <ul>
+                            <li>等于、不等于、大于、大于等于、小于、小于等于</li>
+                            <li>包含、不包含、为空、不为空</li>
+                        </ul>
+                    </li>
+                    <li><strong>提示信息：</strong>必填验证失败时显示的错误提示</li>
+                    <li><strong>验证时机：</strong>
+                        <ul>
+                            <li>失去焦点时：字段失去焦点后验证</li>
+                            <li>提交时：表单提交前验证</li>
+                            <li>实时验证：字段值改变时立即验证</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>操作说明</h4>
+                <ul>
+                    <li><strong>添加条件：</strong>添加新的判断条件</li>
+                    <li><strong>删除条件：</strong>删除不需要的条件</li>
+                    <li><strong>测试条件：</strong>在配置界面模拟测试必填条件</li>
+                    <li><strong>保存：</strong>保存必填条件配置
+                        <ul>
+                            <li>选择"根据条件决定"时，至少需要配置一个条件</li>
+                            <li>保存前会验证条件的完整性</li>
+                            <li>保存成功后返回表单编辑器</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>注意事项</h4>
+                <ul>
+                    <li>1. 必填条件会实时计算，当判断字段值变化时立即更新目标字段的必填状态</li>
+                    <li>2. 被隐藏的字段即使设置了必填条件，也不会触发必填验证</li>
+                    <li>3. 多个必填条件可能存在冲突，请仔细设计条件逻辑</li>
+                    <li>4. 提示信息中的{字段名}会自动替换为实际的字段名称</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('input[name="baseRequired"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        const conditionSection = document.getElementById('conditionSection');
+        if (this.value === 'condition') {
+            conditionSection.style.display = 'block';
+        } else {
+            conditionSection.style.display = 'none';
+        }
+    });
+});
+</script>
+

@@ -1,0 +1,296 @@
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">组件数据联动-通用</h1>
+        <div class="breadcrumb">
+            <span>平台概览</span>
+            <span class="separator">></span>
+            <span>表单管理</span>
+            <span class="separator">></span>
+            <span>表单编辑器</span>
+            <span class="separator">></span>
+            <span class="active">组件数据联动</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="info-box">
+            <h3>数据联动说明</h3>
+            <p>数据联动用于设置组件之间的级联关系，当某个组件的值发生变化时，自动更新其他关联组件的数据选项。</p>
+            <p>常见应用场景：省市区三级联动、产品类别与产品型号联动、部门与人员联动等。</p>
+        </div>
+
+        <div class="form-section" style="margin-top: 20px;">
+            <h3>联动配置</h3>
+            
+            <div class="form-item">
+                <label>主控字段：<span style="color: red;">*</span></label>
+                <select class="form-select" style="width: 300px;">
+                    <option>请选择字段</option>
+                    <option>省份</option>
+                    <option>产品类别</option>
+                    <option>部门</option>
+                </select>
+                <span style="margin-left: 10px; color: #999;">值变化时触发联动的字段</span>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>从属字段：<span style="color: red;">*</span></label>
+                <select class="form-select" style="width: 300px;">
+                    <option>请选择字段</option>
+                    <option>城市</option>
+                    <option>产品型号</option>
+                    <option>员工</option>
+                </select>
+                <span style="margin-left: 10px; color: #999;">根据主控字段值变化而更新选项的字段</span>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>联动类型：<span style="color: red;">*</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="linkageType" value="static" checked> 静态数据联动</label>
+                    <label><input type="radio" name="linkageType" value="dynamic"> 动态接口联动</label>
+                </div>
+            </div>
+
+            <!-- 静态数据联动配置 -->
+            <div id="staticConfig" class="config-section" style="margin-top: 15px; padding: 15px; border: 1px solid #d9d9d9; border-radius: 4px;">
+                <h4>静态数据配置</h4>
+                <p style="color: #666; font-size: 13px;">配置主控字段不同值对应的从属字段选项数据</p>
+                
+                <div class="data-mapping">
+                    <div class="mapping-item" style="margin-bottom: 10px; padding: 10px; background: #fafafa; border-radius: 4px;">
+                        <div class="form-row">
+                            <div class="form-item" style="flex: 1;">
+                                <label>当主控字段值为：</label>
+                                <input type="text" class="form-input" value="广东省" placeholder="如：广东省">
+                            </div>
+                            <div class="form-item" style="flex: 2;">
+                                <label>从属字段选项：</label>
+                                <input type="text" class="form-input" value="广州市,深圳市,东莞市,佛山市,珠海市" placeholder="多个选项用逗号分隔">
+                            </div>
+                            <button class="btn btn-sm btn-danger" style="margin-top: 23px;">删除</button>
+                        </div>
+                    </div>
+                    <div class="mapping-item" style="margin-bottom: 10px; padding: 10px; background: #fafafa; border-radius: 4px;">
+                        <div class="form-row">
+                            <div class="form-item" style="flex: 1;">
+                                <label>当主控字段值为：</label>
+                                <input type="text" class="form-input" value="浙江省" placeholder="如：浙江省">
+                            </div>
+                            <div class="form-item" style="flex: 2;">
+                                <label>从属字段选项：</label>
+                                <input type="text" class="form-input" value="杭州市,宁波市,温州市,绍兴市,嘉兴市" placeholder="多个选项用逗号分隔">
+                            </div>
+                            <button class="btn btn-sm btn-danger" style="margin-top: 23px;">删除</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-default">➕ 添加映射关系</button>
+                </div>
+            </div>
+
+            <!-- 动态接口联动配置 -->
+            <div id="dynamicConfig" class="config-section" style="margin-top: 15px; padding: 15px; border: 1px solid #d9d9d9; border-radius: 4px; display: none;">
+                <h4>动态接口配置</h4>
+                <p style="color: #666; font-size: 13px;">配置接口地址，根据主控字段值动态获取从属字段选项</p>
+                
+                <div class="form-item">
+                    <label>接口地址：<span style="color: red;">*</span></label>
+                    <input type="text" class="form-input" placeholder="如：/api/getCityList">
+                </div>
+                
+                <div class="form-item" style="margin-top: 10px;">
+                    <label>请求方式：</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="method" value="GET" checked> GET</label>
+                        <label><input type="radio" name="method" value="POST"> POST</label>
+                    </div>
+                </div>
+
+                <div class="form-item" style="margin-top: 10px;">
+                    <label>参数配置：</label>
+                    <div style="margin-top: 5px;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>参数名</th>
+                                    <th>参数值（取字段值）</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="form-input" value="provinceId" placeholder="参数名"></td>
+                                    <td>
+                                        <select class="form-select">
+                                            <option>省份</option>
+                                            <option>产品类别</option>
+                                        </select>
+                                    </td>
+                                    <td><a href="#" class="action-link">删除</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-default" style="margin-top: 10px;">➕ 添加参数</button>
+                    </div>
+                </div>
+
+                <div class="form-item" style="margin-top: 10px;">
+                    <label>返回数据路径：</label>
+                    <input type="text" class="form-input" value="data.list" placeholder="如：data.list">
+                    <div style="margin-top: 5px; color: #999; font-size: 12px;">
+                        指定返回数据中选项数组的路径
+                    </div>
+                </div>
+
+                <div class="form-row" style="margin-top: 10px;">
+                    <div class="form-item">
+                        <label>选项值字段：</label>
+                        <input type="text" class="form-input" value="id" placeholder="如：id">
+                    </div>
+                    <div class="form-item">
+                        <label>选项文本字段：</label>
+                        <input type="text" class="form-input" value="name" placeholder="如：name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>联动触发时机：</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="trigger" value="change" checked> 值改变时</label>
+                    <label><input type="radio" name="trigger" value="blur"> 失去焦点时</label>
+                </div>
+            </div>
+
+            <div class="form-item" style="margin-top: 15px;">
+                <label>
+                    <input type="checkbox" checked>
+                    <span>主控字段值改变时，清空从属字段的值</span>
+                </label>
+            </div>
+
+            <div class="form-actions" style="margin-top: 20px;">
+                <button class="btn btn-default">取消</button>
+                <button class="btn btn-primary">测试联动</button>
+                <button class="btn btn-primary">保存</button>
+            </div>
+        </div>
+
+        <!-- 联动示例 -->
+        <div class="form-section" style="margin-top: 30px;">
+            <h3>联动示例</h3>
+            
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">省市区三级联动</h4>
+                <ul style="margin-bottom: 0; color: #666; font-size: 13px;">
+                    <li>省份 → 城市：选择省份后，城市下拉框显示该省份下的所有城市</li>
+                    <li>城市 → 区县：选择城市后，区县下拉框显示该城市下的所有区县</li>
+                </ul>
+            </div>
+
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">产品分类联动</h4>
+                <ul style="margin-bottom: 0; color: #666; font-size: 13px;">
+                    <li>产品类别 → 产品型号：选择产品类别后，产品型号下拉框显示该类别下的所有型号</li>
+                    <li>产品型号 → 产品规格：选择产品型号后，产品规格下拉框显示该型号的所有规格</li>
+                </ul>
+            </div>
+
+            <div class="example-item" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <h4 style="margin-top: 0;">组织架构联动</h4>
+                <ul style="margin-bottom: 0; color: #666; font-size: 13px;">
+                    <li>公司 → 部门：选择公司后，部门下拉框显示该公司的所有部门</li>
+                    <li>部门 → 员工：选择部门后，员工下拉框显示该部门的所有员工</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 原型说明 -->
+        <div class="prototype-notes">
+            <h3>原型说明：</h3>
+            
+            <div class="note-section">
+                <h4>页面名称：组件数据联动-通用</h4>
+                <p><strong>页面描述：</strong>配置页面，设置组件之间的数据联动关系</p>
+                <p><strong>功能应用：</strong>在表单编辑器中，为需要级联选择的字段配置联动规则</p>
+            </div>
+
+            <div class="note-section">
+                <h4>配置说明</h4>
+                <ul>
+                    <li><strong>主控字段：</strong>必选，值变化时触发联动的字段</li>
+                    <li><strong>从属字段：</strong>必选，根据主控字段值更新选项的字段</li>
+                    <li><strong>联动类型：</strong>
+                        <ul>
+                            <li>静态数据联动：手动配置主控字段不同值对应的从属字段选项</li>
+                            <li>动态接口联动：通过接口动态获取从属字段选项</li>
+                        </ul>
+                    </li>
+                    <li><strong>静态数据配置：</strong>
+                        <ul>
+                            <li>配置主控字段每个值对应的从属字段选项</li>
+                            <li>支持添加、编辑、删除映射关系</li>
+                            <li>选项之间用逗号分隔</li>
+                        </ul>
+                    </li>
+                    <li><strong>动态接口配置：</strong>
+                        <ul>
+                            <li>接口地址：获取从属字段选项的接口URL</li>
+                            <li>请求方式：GET或POST</li>
+                            <li>参数配置：接口需要的参数，值来自主控字段</li>
+                            <li>返回数据路径：指定返回数据中选项数组的路径</li>
+                            <li>选项值字段：返回数据中作为选项值的字段名</li>
+                            <li>选项文本字段：返回数据中作为选项显示文本的字段名</li>
+                        </ul>
+                    </li>
+                    <li><strong>联动触发时机：</strong>
+                        <ul>
+                            <li>值改变时：主控字段值一改变就立即触发联动</li>
+                            <li>失去焦点时：主控字段失去焦点后触发联动</li>
+                        </ul>
+                    </li>
+                    <li><strong>清空从属字段：</strong>勾选后，主控字段值改变时会清空从属字段的值</li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>操作说明</h4>
+                <ul>
+                    <li><strong>测试联动：</strong>在配置界面模拟测试联动效果</li>
+                    <li><strong>保存：</strong>保存联动配置
+                        <ul>
+                            <li>保存前会验证配置的完整性</li>
+                            <li>动态接口联动会测试接口是否可访问</li>
+                            <li>保存成功后返回表单编辑器</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="note-section">
+                <h4>多级联动</h4>
+                <p>支持配置多级联动关系，例如：</p>
+                <ul>
+                    <li>A → B：字段A联动字段B</li>
+                    <li>B → C：字段B联动字段C</li>
+                    <li>结果：A → B → C 三级联动</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('input[name="linkageType"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        if (this.value === 'static') {
+            document.getElementById('staticConfig').style.display = 'block';
+            document.getElementById('dynamicConfig').style.display = 'none';
+        } else {
+            document.getElementById('staticConfig').style.display = 'none';
+            document.getElementById('dynamicConfig').style.display = 'block';
+        }
+    });
+});
+</script>
+
