@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>日视图 - 日程中心</title>
+    <link rel="stylesheet" href="../css/mobile.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="mobile-header">
+        <div class="header-content">
+            <button class="back-btn" onclick="history.back()">‹</button>
+            <h1>日视图</h1>
+            <button class="add-btn">+</button>
+        </div>
+    </header>
+
+    <!-- 日视图内容 -->
+    <div class="day-view">
+        <div class="day-view-header">
+            <h2 class="day-view-title">今天</h2>
+            <p class="day-view-date">2025年6月19日 星期三</p>
+        </div>
+
+        <div class="day-timeline">
+            <!-- 00:00 - 07:00 -->
+            <div class="hour-block">
+                <div class="hour-label">00:00</div>
+                <div class="hour-content"></div>
+            </div>
+            
+            <!-- 08:00 -->
+            <div class="hour-block">
+                <div class="hour-label">08:00</div>
+                <div class="hour-content">
+                    <div class="schedule-card">
+                        <div class="schedule-header">
+                            <h3>晨会</h3>
+                            <span class="schedule-status completed">已完成</span>
+                        </div>
+                        <div class="schedule-info">
+                            <span class="info-item">⏰ 08:30 - 09:00</span>
+                            <span class="info-item">📍 线上会议</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 09:00 -->
+            <div class="hour-block">
+                <div class="hour-label">09:00</div>
+                <div class="hour-content">
+                    <div class="schedule-card">
+                        <div class="schedule-header">
+                            <h3>团队周会</h3>
+                            <span class="schedule-status ongoing">进行中</span>
+                        </div>
+                        <div class="schedule-info">
+                            <span class="info-item">⏰ 09:00 - 10:00</span>
+                            <span class="info-item">📍 会议室A</span>
+                            <span class="info-item">👥 10人参加</span>
+                        </div>
+                        <div class="schedule-desc">
+                            讨论本周工作进展和下周计划
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10:00 - 13:00 -->
+            <div class="hour-block">
+                <div class="hour-label">10:00</div>
+                <div class="hour-content"></div>
+            </div>
+
+            <!-- 14:00 -->
+            <div class="hour-block">
+                <div class="hour-label">14:00</div>
+                <div class="hour-content">
+                    <div class="schedule-card">
+                        <div class="schedule-header">
+                            <h3>项目评审</h3>
+                            <span class="schedule-status upcoming">未开始</span>
+                        </div>
+                        <div class="schedule-info">
+                            <span class="info-item">⏰ 14:00 - 16:00</span>
+                            <span class="info-item">📍 会议室B</span>
+                            <span class="info-item">👥 6人参加</span>
+                        </div>
+                        <div class="schedule-desc">
+                            产品需求评审会议
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 16:00 -->
+            <div class="hour-block">
+                <div class="hour-label">16:00</div>
+                <div class="hour-content">
+                    <div class="schedule-card">
+                        <div class="schedule-header">
+                            <h3>客户沟通</h3>
+                            <span class="schedule-status upcoming">未开始</span>
+                        </div>
+                        <div class="schedule-info">
+                            <span class="info-item">⏰ 16:30 - 17:30</span>
+                            <span class="info-item">📍 线上会议</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 18:00 - 23:00 -->
+            <div class="hour-block">
+                <div class="hour-label">18:00</div>
+                <div class="hour-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <span class="nav-icon">📅</span>
+            <span class="nav-text">日程</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">✓</span>
+            <span class="nav-text">待办</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">📢</span>
+            <span class="nav-text">通知</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </a>
+    </nav>
+
+    <script src="../js/mobile.js"></script>
+</body>
+</html>
+

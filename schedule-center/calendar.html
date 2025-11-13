@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日历 - 日程中心</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calendar-page.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">首页</a>
+                <a href="#" class="nav-item">工作台</a>
+                <a href="#" class="nav-item active">日程中心</a>
+                <a href="#" class="nav-item">待办中心</a>
+                <a href="#" class="nav-item">通知公告</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="搜索">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="user-info">
+                <img src="images/avatar.png" alt="User Avatar" class="avatar">
+                <span class="username">用户名</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+        <a href="index.html">日程中心</a>
+        <span class="separator">></span>
+        <span class="current">日历</span>
+    </div>
+
+    <!-- 主内容区域 -->
+    <main class="calendar-page-container">
+        <div class="calendar-page-header">
+            <h1>我的日历</h1>
+            <div class="header-actions">
+                <button class="btn btn-secondary">导入</button>
+                <button class="btn btn-secondary">导出</button>
+                <button class="btn btn-primary">创建日程</button>
+            </div>
+        </div>
+
+        <!-- 视图切换 -->
+        <div class="view-switcher">
+            <button class="view-btn">日视图</button>
+            <button class="view-btn">周视图</button>
+            <button class="view-btn active">月视图</button>
+            <button class="view-btn">年视图</button>
+        </div>
+
+        <!-- 完整日历视图 -->
+        <div class="full-calendar">
+            <div class="calendar-toolbar">
+                <button class="today-btn">今天</button>
+                <div class="month-nav">
+                    <button class="prev-btn">‹</button>
+                    <span class="current-month-text">2025年6月</span>
+                    <button class="next-btn">›</button>
+                </div>
+                <div class="calendar-legend">
+                    <span class="legend-item">
+                        <span class="legend-dot red"></span>
+                        <span>未开始</span>
+                    </span>
+                    <span class="legend-item">
+                        <span class="legend-dot gray"></span>
+                        <span>已过期</span>
+                    </span>
+                    <span class="legend-item">
+                        <span class="legend-dot blue"></span>
+                        <span>进行中</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- 月视图网格 -->
+            <div class="month-view-grid">
+                <div class="weekday-row">
+                    <div class="weekday-cell">周一</div>
+                    <div class="weekday-cell">周二</div>
+                    <div class="weekday-cell">周三</div>
+                    <div class="weekday-cell">周四</div>
+                    <div class="weekday-cell">周五</div>
+                    <div class="weekday-cell weekend">周六</div>
+                    <div class="weekday-cell weekend">周日</div>
+                </div>
+
+                <div class="dates-row">
+                    <!-- 动态生成日期单元格 -->
+                    <div class="date-cell">
+                        <div class="date-cell-header">
+                            <span class="date-number">1</span>
+                        </div>
+                        <div class="date-cell-body">
+                            <div class="schedule-mini">
+                                <span class="schedule-mini-time">09:00</span>
+                                <span class="schedule-mini-title">团队周会</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/calendar.js"></script>
+    <script src="js/calendar-page.js"></script>
+</body>
+</html>
+

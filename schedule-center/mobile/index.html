@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>日程中心 - 移动端</title>
+    <link rel="stylesheet" href="../css/mobile.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="mobile-header">
+        <div class="header-content">
+            <h1>日程中心</h1>
+            <button class="add-btn">+</button>
+        </div>
+    </header>
+
+    <!-- 日期选择器 -->
+    <div class="date-selector">
+        <div class="date-scroll">
+            <div class="date-item">
+                <div class="date-day">周一</div>
+                <div class="date-number">17</div>
+            </div>
+            <div class="date-item">
+                <div class="date-day">周二</div>
+                <div class="date-number">18</div>
+            </div>
+            <div class="date-item active">
+                <div class="date-day">今天</div>
+                <div class="date-number">19</div>
+                <div class="date-dot"></div>
+            </div>
+            <div class="date-item">
+                <div class="date-day">周四</div>
+                <div class="date-number">20</div>
+                <div class="date-dot"></div>
+            </div>
+            <div class="date-item">
+                <div class="date-day">周五</div>
+                <div class="date-number">21</div>
+                <div class="date-dot"></div>
+            </div>
+            <div class="date-item weekend">
+                <div class="date-day">周六</div>
+                <div class="date-number">22</div>
+            </div>
+            <div class="date-item weekend">
+                <div class="date-day">周日</div>
+                <div class="date-number">23</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 日程列表 -->
+    <main class="schedule-content">
+        <!-- 无日程状态 -->
+        <div class="empty-state">
+            <div class="empty-icon">📅</div>
+            <p class="empty-text">今天还没有日程安排</p>
+            <button class="create-schedule-btn">创建日程</button>
+        </div>
+
+        <!-- 有日程时显示（默认隐藏） -->
+        <div class="schedule-timeline" style="display: none;">
+            <div class="timeline-item">
+                <div class="time-label">09:00</div>
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <h3>团队周会</h3>
+                        <span class="schedule-status ongoing">进行中</span>
+                    </div>
+                    <div class="schedule-info">
+                        <span class="info-item">⏰ 09:00 - 10:00</span>
+                        <span class="info-item">📍 会议室A</span>
+                    </div>
+                    <div class="schedule-desc">
+                        讨论本周工作进展和下周计划
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time-label">14:00</div>
+                <div class="schedule-card">
+                    <div class="schedule-header">
+                        <h3>项目评审</h3>
+                        <span class="schedule-status upcoming">未开始</span>
+                    </div>
+                    <div class="schedule-info">
+                        <span class="info-item">⏰ 14:00 - 16:00</span>
+                        <span class="info-item">📍 会议室B</span>
+                    </div>
+                    <div class="schedule-desc">
+                        产品需求评审会议
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <span class="nav-icon">📅</span>
+            <span class="nav-text">日程</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">✓</span>
+            <span class="nav-text">待办</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">📢</span>
+            <span class="nav-text">通知</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </a>
+    </nav>
+
+    <script src="../js/mobile.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,422 @@
+/* 移动端样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    padding-bottom: 60px;
+}
+
+/* 移动端顶部导航 */
+.mobile-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+}
+
+.header-content h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.add-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    border: none;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* 日期选择器 */
+.date-selector {
+    background: white;
+    padding: 16px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 60px;
+    z-index: 99;
+}
+
+.date-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 0 20px;
+    scrollbar-width: none;
+}
+
+.date-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.date-item {
+    flex-shrink: 0;
+    width: 60px;
+    padding: 12px 8px;
+    text-align: center;
+    border-radius: 12px;
+    background: #f5f5f5;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.date-item.active {
+    background: #667eea;
+    color: white;
+}
+
+.date-item.weekend {
+    background: #fff8f0;
+}
+
+.date-day {
+    font-size: 12px;
+    margin-bottom: 4px;
+    opacity: 0.7;
+}
+
+.date-number {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.date-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff4d4f;
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.date-item.active .date-dot {
+    background: white;
+}
+
+/* 日程内容区域 */
+.schedule-content {
+    padding: 20px;
+}
+
+/* 空状态 */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.empty-text {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 24px;
+}
+
+.create-schedule-btn {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 24px;
+    background: #667eea;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* 日程时间轴 */
+.schedule-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 16px;
+}
+
+.time-label {
+    flex-shrink: 0;
+    width: 50px;
+    font-size: 14px;
+    color: #999;
+    font-weight: 500;
+    padding-top: 4px;
+}
+
+.schedule-card {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.schedule-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.schedule-status {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.schedule-status.ongoing {
+    background: #e6f7ff;
+    color: #1890ff;
+}
+
+.schedule-status.upcoming {
+    background: #fff7e6;
+    color: #fa8c16;
+}
+
+.schedule-status.completed {
+    background: #f6ffed;
+    color: #52c41a;
+}
+
+.schedule-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.info-item {
+    font-size: 14px;
+    color: #666;
+}
+
+.schedule-desc {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.6;
+}
+
+/* 底部导航 */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #999;
+    padding: 4px 12px;
+    transition: color 0.3s;
+}
+
+.nav-item.active {
+    color: #667eea;
+}
+
+.nav-icon {
+    font-size: 24px;
+}
+
+.nav-text {
+    font-size: 12px;
+}
+
+/* 月视图样式 */
+.month-view {
+    padding: 20px;
+}
+
+.month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.month-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.month-nav-btns {
+    display: flex;
+    gap: 12px;
+}
+
+.month-nav-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #e8e8e8;
+    background: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.calendar-grid {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.weekday {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    font-weight: 600;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.day-cell {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.day-cell.today {
+    background: #e6f7ff;
+    color: #1890ff;
+    font-weight: 600;
+}
+
+.day-cell.selected {
+    background: #667eea;
+    color: white;
+}
+
+.day-cell.other-month {
+    color: #ccc;
+}
+
+.day-cell .day-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #ff4d4f;
+    position: absolute;
+    bottom: 4px;
+}
+
+/* 日视图样式 */
+.day-view {
+    padding: 0;
+}
+
+.day-view-header {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.day-view-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.day-view-date {
+    font-size: 14px;
+    color: #999;
+}
+
+.day-timeline {
+    padding: 20px;
+}
+
+.hour-block {
+    display: flex;
+    gap: 16px;
+    min-height: 60px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.hour-label {
+    flex-shrink: 0;
+    width: 50px;
+    font-size: 12px;
+    color: #999;
+    padding-top: 4px;
+}
+
+.hour-content {
+    flex: 1;
+    padding: 8px 0;
+}
+
+/* 响应式调整 */
+@media (max-width: 375px) {
+    .date-item {
+        width: 50px;
+    }
+    
+    .date-number {
+        font-size: 18px;
+    }
+}
+

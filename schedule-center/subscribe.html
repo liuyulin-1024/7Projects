@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订阅广场 - 日程中心</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/subscribe.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">首页</a>
+                <a href="#" class="nav-item">工作台</a>
+                <a href="#" class="nav-item active">日程中心</a>
+                <a href="#" class="nav-item">待办中心</a>
+                <a href="#" class="nav-item">通知公告</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="搜索">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="user-info">
+                <img src="images/avatar.png" alt="User Avatar" class="avatar">
+                <span class="username">用户名</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+        <a href="index.html">日程中心</a>
+        <span class="separator">></span>
+        <span class="current">订阅广场</span>
+    </div>
+
+    <!-- 主内容区域 -->
+    <main class="subscribe-container">
+        <div class="subscribe-header">
+            <h1>订阅广场</h1>
+            <p class="subtitle">发现并订阅感兴趣的日程</p>
+        </div>
+
+        <!-- 分类筛选 -->
+        <div class="category-filters">
+            <button class="filter-btn active">全部</button>
+            <button class="filter-btn">会议</button>
+            <button class="filter-btn">培训</button>
+            <button class="filter-btn">活动</button>
+            <button class="filter-btn">节假日</button>
+            <button class="filter-btn">其他</button>
+        </div>
+
+        <!-- 订阅卡片网格 -->
+        <div class="subscribe-grid">
+            <!-- 订阅卡片1 -->
+            <div class="subscribe-card">
+                <div class="card-banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="card-icon">📅</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">公司会议日程</h3>
+                    <p class="card-description">订阅公司重要会议通知，不错过任何重要会议</p>
+                    <div class="card-meta">
+                        <span class="subscribers">
+                            <span class="icon">👥</span>
+                            <span>1,234人已订阅</span>
+                        </span>
+                        <span class="update-frequency">每日更新</span>
+                    </div>
+                    <button class="subscribe-btn">订阅</button>
+                </div>
+            </div>
+
+            <!-- 订阅卡片2 -->
+            <div class="subscribe-card">
+                <div class="card-banner" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="card-icon">🎓</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">培训课程安排</h3>
+                    <p class="card-description">及时获取最新培训课程安排，提升自我</p>
+                    <div class="card-meta">
+                        <span class="subscribers">
+                            <span class="icon">👥</span>
+                            <span>856人已订阅</span>
+                        </span>
+                        <span class="update-frequency">每周更新</span>
+                    </div>
+                    <button class="subscribe-btn subscribed">已订阅</button>
+                </div>
+            </div>
+
+            <!-- 订阅卡片3 -->
+            <div class="subscribe-card">
+                <div class="card-banner" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="card-icon">🎉</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">团建活动</h3>
+                    <p class="card-description">关注公司团建活动，增进同事友谊</p>
+                    <div class="card-meta">
+                        <span class="subscribers">
+                            <span class="icon">👥</span>
+                            <span>2,345人已订阅</span>
+                        </span>
+                        <span class="update-frequency">不定期</span>
+                    </div>
+                    <button class="subscribe-btn">订阅</button>
+                </div>
+            </div>
+
+            <!-- 订阅卡片4 -->
+            <div class="subscribe-card">
+                <div class="card-banner" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <div class="card-icon">🏖️</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">节假日提醒</h3>
+                    <p class="card-description">提前规划假期，合理安排工作和休息</p>
+                    <div class="card-meta">
+                        <span class="subscribers">
+                            <span class="icon">👥</span>
+                            <span>5,678人已订阅</span>
+                        </span>
+                        <span class="update-frequency">按季度更新</span>
+                    </div>
+                    <button class="subscribe-btn subscribed">已订阅</button>
+                </div>
+            </div>
+
+            <!-- 订阅卡片5 -->
+            <div class="subscribe-card">
+                <div class="card-banner" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                    <div class="card-icon">📢</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">部门公告</h3>
+                    <p class="card-description">接收部门重要公告和通知</p>
+                    <div class="card-meta">
+                        <span class="subscribers">
+                            <span class="icon">👥</span>
+                            <span>987人已订阅</span>
+                        </span>
+                        <span class="update-frequency">实时更新</span>
+                    </div>
+                    <button class="subscribe-btn">订阅</button>
+                </div>
+            </div>
+
+            <!-- 订阅卡片6 -->
+            <div class="subscribe-card">
+                <div class="card-banner" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <div class="card-icon">🎯</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">项目里程碑</h3>
+                    <p class="card-description">跟踪项目关键节点，确保按时交付</p>
+                    <div class="card-meta">
+                        <span class="subscribers">
+                            <span class="icon">👥</span>
+                            <span>1,567人已订阅</span>
+                        </span>
+                        <span class="update-frequency">每周更新</span>
+                    </div>
+                    <button class="subscribe-btn">订阅</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/subscribe.js"></script>
+</body>
+</html>
+

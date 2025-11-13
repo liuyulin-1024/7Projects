@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>注释标记检查工具</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .page-check { margin-bottom: 30px; padding: 15px; border: 1px solid #ddd; }
+        .page-check h3 { margin-top: 0; }
+        .error { color: red; font-weight: bold; }
+        .success { color: green; }
+        .warning { color: orange; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>注释标记检查报告</h1>
+    <div id="results"></div>
+
+    <script>
+        // 检查每个页面的注释标记
+        function checkPage(pageId, pageName) {
+            const page = document.querySelector(pageId);
+            if (!page) {
+                return { name: pageName, error: '页面不存在' };
+            }
+
+            // 获取页面中的所有 data-note 标记
+            const markers = page.querySelectorAll('[data-note]');
+            const markerNotes = Array.from(markers).map(m => m.getAttribute('data-note'));
+            
+            // 获取页面说明中的所有 note-num
+            const noteNums = page.querySelectorAll('.note-num');
+            const explainedNotes = Array.from(noteNums).map(n => n.textContent.trim());
+
+            // 统计
+            const markerSet = new Set(markerNotes);
+            const explainedSet = new Set(explainedNotes);
+            
+            // 找出缺失的说明
+            const missingExplanations = [...markerSet].filter(n => !explainedSet.has(n));
+            const unusedExplanations = [...explainedSet].filter(n => !markerSet.has(n));
+
+            return {
+                name: pageName,
+                totalMarkers: markers.length,
+                uniqueMarkers: markerSet.size,
+                totalExplanations: noteNums.length,
+                uniqueExplanations: explainedSet.size,
+                markerNotes: markerNotes,
+                explainedNotes: [...explainedSet],
+                missingExplanations,
+                unusedExplanations,
+                isComplete: missingExplanations.length === 0 && markerSet.size > 0
+            };
+        }
+
+        // 检查所有页面
+        const pages = [
+            ['#page-01', '修订记录'],
+            ['#page-02', '字段模版库'],
+            ['#page-03', '数据源管理'],
+            ['#page-04', '新增/编辑数据源'],
+            ['#page-05', '建模管理'],
+            ['#page-06', '新增/编辑模型'],
+            ['#page-07', '表单管理'],
+            ['#page-08', '表单编辑器'],
+            ['#page-09', '需增加/调整组件'],
+            ['#page-10', '组件公式配置'],
+            ['#page-11', '组件数据联动'],
+            ['#page-12', '组件隐藏条件'],
+            ['#page-13', '组件必填条件'],
+            ['#page-14', '表单样式管理'],
+            ['#page-15', '函数库'],
+            ['#page-16', '组件库'],
+            ['#page-17', '新增/编辑组件']
+        ];
+
+        const resultsDiv = document.getElementById('results');
+        let hasErrors = false;
+
+        pages.forEach(([id, name]) => {
+            const result = checkPage(id, name);
+            const div = document.createElement('div');
+            div.className = 'page-check';
+            
+            let html = `<h3>${name} (${id})</h3>`;
+            
+            if (result.error) {
+                html += `<p class="error">错误: ${result.error}</p>`;
+                hasErrors = true;
+            } else if (result.totalMarkers === 0) {
+                html += `<p class="warning">⚠️ 该页面没有注释标记</p>`;
+            } else {
+                html += `<p>标记总数: ${result.totalMarkers}，唯一标记: ${result.uniqueMarkers}</p>`;
+                html += `<p>说明总数: ${result.totalExplanations}，唯一说明: ${result.uniqueExplanations}</p>`;
+                
+                if (result.isComplete) {
+                    html += `<p class="success">✅ 所有标记都有对应说明</p>`;
+                } else {
+                    hasErrors = true;
+                    if (result.missingExplanations.length > 0) {
+                        html += `<p class="error">❌ 缺少说明的标记: ${result.missingExplanations.join(', ')}</p>`;
+                    }
+                    if (result.unusedExplanations.length > 0) {
+                        html += `<p class="warning">⚠️ 多余的说明: ${result.unusedExplanations.join(', ')}</p>`;
+                    }
+                }
+                
+                // 显示详细信息
+                html += `<table>
+                    <tr>
+                        <th>标记编号</th>
+                        <th>说明编号</th>
+                    </tr>
+                    <tr>
+                        <td>${result.markerNotes.join(', ')}</td>
+                        <td>${result.explainedNotes.join(', ')}</td>
+                    </tr>
+                </table>`;
+            }
+            
+            div.innerHTML = html;
+            resultsDiv.appendChild(div);
+        });
+
+        // 总结
+        const summary = document.createElement('div');
+        summary.style.cssText = 'margin-top: 30px; padding: 20px; background: ' + (hasErrors ? '#fff3cd' : '#d4edda') + '; border-radius: 5px;';
+        summary.innerHTML = hasErrors 
+            ? '<h2>⚠️ 发现问题，需要修复</h2>'
+            : '<h2>✅ 所有页面的注释标记都已完整</h2>';
+        resultsDiv.insertBefore(summary, resultsDiv.firstChild);
+    </script>
+</body>
+</html>
+

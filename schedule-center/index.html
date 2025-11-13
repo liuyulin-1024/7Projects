@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日程中心-pc端</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">首页</a>
+                <a href="#" class="nav-item">工作台</a>
+                <a href="#" class="nav-item active">日程中心</a>
+                <a href="#" class="nav-item">待办中心</a>
+                <a href="#" class="nav-item">通知公告</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="搜索">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="user-info">
+                <img src="images/avatar.png" alt="User Avatar" class="avatar">
+                <span class="username">用户名</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="main-container">
+        <!-- 左侧区域：待办中心卡片 -->
+        <aside class="left-sidebar">
+            <!-- 待办中心卡片 -->
+            <div class="card todo-card">
+                <div class="card-header">
+                    <h3>待办中心</h3>
+                    <a href="#" class="view-all">查看全部 >></a>
+                </div>
+                <div class="tabs">
+                    <button class="tab active">待办</button>
+                    <button class="tab">已办</button>
+                    <button class="tab">已发</button>
+                    <button class="tab">办结</button>
+                </div>
+                <div class="todo-list">
+                    <!-- 待办事项1 -->
+                    <div class="todo-item">
+                        <div class="todo-badge urgent">稍后办</div>
+                        <div class="todo-source">财务</div>
+                        <div class="todo-title">2026年预算申请</div>
+                        <div class="todo-time">
+                            <span class="time-icon">⏰</span>
+                            <span>2025-06-20 09:35</span>
+                        </div>
+                    </div>
+                    <!-- 待办事项2 -->
+                    <div class="todo-item">
+                        <div class="todo-badge urgent-red">紧急</div>
+                        <div class="todo-source">OMS</div>
+                        <div class="todo-title">AI智能客服系统项目立项审批</div>
+                        <div class="todo-time">
+                            <span class="time-icon">⏰</span>
+                            <span>2025-06-20 13:28</span>
+                        </div>
+                    </div>
+                    <!-- 待办事项3 -->
+                    <div class="todo-item">
+                        <div class="todo-source">HRM</div>
+                        <div class="todo-title">新员工入职审批</div>
+                        <div class="todo-time">
+                            <span class="time-icon">⏰</span>
+                            <span>2025-06-22 19:39</span>
+                        </div>
+                    </div>
+                    <!-- 待办事项4 -->
+                    <div class="todo-item">
+                        <div class="todo-source">OA</div>
+                        <div class="todo-title">财务部软件采购合同审批</div>
+                        <div class="todo-time">
+                            <span class="time-icon">⏰</span>
+                            <span>2025-06-22 11:31</span>
+                        </div>
+                    </div>
+                    <!-- 待办事项5 -->
+                    <div class="todo-item">
+                        <div class="todo-source">PMS</div>
+                        <div class="todo-title">工程部自动化项目事宜讨论</div>
+                        <div class="todo-time">
+                            <span class="time-icon">⏰</span>
+                            <span>2025-06-21 20:34</span>
+                        </div>
+                    </div>
+                    <!-- 待办事项6 -->
+                    <div class="todo-item">
+                        <div class="todo-source">HRM</div>
+                        <div class="todo-title">新员工入职审批</div>
+                        <div class="todo-time">
+                            <span class="time-icon">⏰</span>
+                            <span>2025-06-20 09:35</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 通知公告卡片 -->
+            <div class="card notice-card">
+                <div class="card-header">
+                    <h3>通知公告</h3>
+                    <a href="#" class="view-all">查看全部 >></a>
+                </div>
+                <div class="notice-list">
+                    <!-- 通知列表内容 -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧区域：日历 -->
+        <section class="right-content">
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <h2>我的日历</h2>
+                    <button class="add-schedule-btn" title="创建日程">+</button>
+                </div>
+                
+                <!-- 日历控件 -->
+                <div class="calendar">
+                    <div class="calendar-controls">
+                        <button class="prev-month">‹</button>
+                        <div class="current-month">
+                            <span class="year">2025年</span>
+                            <span class="month">6月</span>
+                        </div>
+                        <button class="next-month">›</button>
+                    </div>
+                    
+                    <div class="calendar-grid">
+                        <!-- 星期标题 -->
+                        <div class="weekday-header">
+                            <div class="weekday">一</div>
+                            <div class="weekday">二</div>
+                            <div class="weekday">三</div>
+                            <div class="weekday">四</div>
+                            <div class="weekday">五</div>
+                            <div class="weekday">六</div>
+                            <div class="weekday">日</div>
+                        </div>
+                        
+                        <!-- 日期网格 -->
+                        <div class="dates-grid">
+                            <!-- 上月日期 -->
+                            <div class="date prev-month-date">26</div>
+                            <div class="date prev-month-date">27</div>
+                            <div class="date prev-month-date">28</div>
+                            <div class="date prev-month-date">29</div>
+                            <div class="date prev-month-date">30</div>
+                            <div class="date prev-month-date">31</div>
+                            
+                            <!-- 当月日期 -->
+                            <div class="date">
+                                <span class="day-number">1</span>
+                                <span class="dot red-dot"></span>
+                            </div>
+                            <!-- 更多日期... -->
+                            <div class="date">
+                                <span class="day-number">19</span>
+                                <span class="date-tag today">今</span>
+                            </div>
+                            <div class="date">
+                                <span class="day-number">20</span>
+                                <span class="dot red-dot"></span>
+                            </div>
+                            <div class="date selected">
+                                <span class="day-number">21</span>
+                                <span class="dot red-dot"></span>
+                            </div>
+                            <!-- 周末标记 -->
+                            <div class="date weekend">
+                                <span class="day-number">22</span>
+                                <span class="holiday-tag">休</span>
+                            </div>
+                            <div class="date weekend">
+                                <span class="day-number">23</span>
+                                <span class="holiday-tag">休</span>
+                            </div>
+                            <!-- 补班日期 -->
+                            <div class="date workday">
+                                <span class="day-number">24</span>
+                                <span class="workday-tag">班</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 选中日期的日程列表 -->
+                <div class="schedule-list">
+                    <h3>2025年6月21日 日程</h3>
+                    <div class="schedules">
+                        <div class="schedule-item">
+                            <div class="schedule-bar active"></div>
+                            <div class="schedule-content">
+                                <div class="schedule-time">08:30 - 09:00</div>
+                                <div class="schedule-title">晨会</div>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-bar active"></div>
+                            <div class="schedule-content">
+                                <div class="schedule-time">10:20 - 10:40</div>
+                                <div class="schedule-title">项目讨论</div>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-bar expired"></div>
+                            <div class="schedule-content">
+                                <div class="schedule-time">16:00 - 17:00</div>
+                                <div class="schedule-title">日程标题日程标题日程标题日程标题日程标题日程标题</div>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-bar active"></div>
+                            <div class="schedule-content">
+                                <div class="schedule-time">17:00 - 17:30</div>
+                                <div class="schedule-title">周例会</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 需求说明区域（右侧注释面板） -->
+            <div class="requirements-panel">
+                <h3>需求说明</h3>
+                <div class="requirement-item">
+                    <div class="requirement-number">1</div>
+                    <div class="requirement-content">
+                        <p>对于有日程安排的，在日历数字下方标记小圆点。</p>
+                        <p>过期日程为灰色圆点，未开始日程为红色圆点</p>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-number">2</div>
+                    <div class="requirement-content">
+                        <p>选中日期后，置实心蓝底；</p>
+                        <p>若选中非当天日期，当天日期变为空心蓝框</p>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-number">3</div>
+                    <div class="requirement-content">
+                        <p>日历盘下方展示选中日期的日程安排，展示主题和日程时间段。</p>
+                        <p>- 鼠标移入出现弹跳效果</p>
+                        <p>- 悬停时展示完整主题和时间。</p>
+                        <p>- 内容过多时滚动翻页显示。</p>
+                        <p>- 过期日程左侧灰色颜色条标记，否则红色颜色条标记</p>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-number">4</div>
+                    <div class="requirement-content">
+                        <p>鼠标移入【我的日历】右侧加号"+"按钮，出现创建日程卡片提醒</p>
+                        <p>点击加号"+"按钮，直接跳转创建日程页面</p>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-number">5</div>
+                    <div class="requirement-content">
+                        <p>对于法定节假日，右上角展示蓝色字体"假"；对于补班日期，右上角展示红色字体"班"</p>
+                    </div>
+                </div>
+                <div class="requirement-note">
+                    <p>默认周一到周五为工作日，周六、周日为节假日，在此基础上，若有改动，才需标记"假"或"班"——整个日程中心均遵循此规则。</p>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-number">6</div>
+                    <div class="requirement-content">
+                        <p>鼠标右键日历盘内任意日期，出现【创建日程】卡片，点击卡片跳转创建日程页面</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 创建日程弹窗 -->
+    <div class="modal" id="createScheduleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>创建日程</h3>
+                <button class="close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- 表单内容 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/calendar.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

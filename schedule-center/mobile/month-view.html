@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>月视图 - 日程中心</title>
+    <link rel="stylesheet" href="../css/mobile.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="mobile-header">
+        <div class="header-content">
+            <button class="back-btn" onclick="history.back()">‹</button>
+            <h1>月视图</h1>
+            <button class="add-btn">+</button>
+        </div>
+    </header>
+
+    <!-- 月视图内容 -->
+    <div class="month-view">
+        <div class="month-header">
+            <h2 class="month-title">2025年6月</h2>
+            <div class="month-nav-btns">
+                <button class="month-nav-btn">‹</button>
+                <button class="month-nav-btn">›</button>
+            </div>
+        </div>
+
+        <div class="calendar-grid">
+            <!-- 星期标题 -->
+            <div class="weekdays">
+                <div class="weekday">一</div>
+                <div class="weekday">二</div>
+                <div class="weekday">三</div>
+                <div class="weekday">四</div>
+                <div class="weekday">五</div>
+                <div class="weekday">六</div>
+                <div class="weekday">日</div>
+            </div>
+
+            <!-- 日期网格 -->
+            <div class="days-grid">
+                <!-- 上月日期 -->
+                <div class="day-cell other-month">26</div>
+                <div class="day-cell other-month">27</div>
+                <div class="day-cell other-month">28</div>
+                <div class="day-cell other-month">29</div>
+                <div class="day-cell other-month">30</div>
+                <div class="day-cell other-month">31</div>
+                
+                <!-- 本月日期 -->
+                <div class="day-cell">
+                    1
+                    <span class="day-dot"></span>
+                </div>
+                <div class="day-cell">2</div>
+                <div class="day-cell">3</div>
+                <div class="day-cell">4</div>
+                <div class="day-cell">5</div>
+                <div class="day-cell">6</div>
+                <div class="day-cell">7</div>
+                <div class="day-cell">8</div>
+                <div class="day-cell">9</div>
+                <div class="day-cell">10</div>
+                <div class="day-cell">11</div>
+                <div class="day-cell">12</div>
+                <div class="day-cell">13</div>
+                <div class="day-cell">14</div>
+                <div class="day-cell">15</div>
+                <div class="day-cell">16</div>
+                <div class="day-cell">17</div>
+                <div class="day-cell">18</div>
+                <div class="day-cell today">19</div>
+                <div class="day-cell">
+                    20
+                    <span class="day-dot"></span>
+                </div>
+                <div class="day-cell selected">
+                    21
+                    <span class="day-dot"></span>
+                </div>
+                <div class="day-cell">22</div>
+                <div class="day-cell">23</div>
+                <div class="day-cell">24</div>
+                <div class="day-cell">25</div>
+                <div class="day-cell">26</div>
+                <div class="day-cell">27</div>
+                <div class="day-cell">28</div>
+                <div class="day-cell">29</div>
+                <div class="day-cell">30</div>
+                
+                <!-- 下月日期 -->
+                <div class="day-cell other-month">1</div>
+                <div class="day-cell other-month">2</div>
+                <div class="day-cell other-month">3</div>
+                <div class="day-cell other-month">4</div>
+                <div class="day-cell other-month">5</div>
+            </div>
+        </div>
+
+        <!-- 选中日期的日程 -->
+        <div class="selected-date-schedules" style="margin-top: 24px;">
+            <h3 style="font-size: 16px; margin-bottom: 16px;">6月21日的日程</h3>
+            
+            <div class="schedule-card" style="margin-bottom: 12px;">
+                <div class="schedule-header">
+                    <h3>晨会</h3>
+                    <span class="schedule-status upcoming">未开始</span>
+                </div>
+                <div class="schedule-info">
+                    <span class="info-item">⏰ 08:30 - 09:00</span>
+                </div>
+            </div>
+
+            <div class="schedule-card" style="margin-bottom: 12px;">
+                <div class="schedule-header">
+                    <h3>项目讨论</h3>
+                    <span class="schedule-status upcoming">未开始</span>
+                </div>
+                <div class="schedule-info">
+                    <span class="info-item">⏰ 10:20 - 10:40</span>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-header">
+                    <h3>周例会</h3>
+                    <span class="schedule-status upcoming">未开始</span>
+                </div>
+                <div class="schedule-info">
+                    <span class="info-item">⏰ 17:00 - 17:30</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <span class="nav-icon">📅</span>
+            <span class="nav-text">日程</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">✓</span>
+            <span class="nav-text">待办</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">📢</span>
+            <span class="nav-text">通知</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </a>
+    </nav>
+
+    <script src="../js/mobile.js"></script>
+</body>
+</html>
+
