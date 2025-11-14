@@ -2,210 +2,219 @@
 <div class="page-container">
     <div class="page-header">
         <h1 class="page-title">建模管理</h1>
-        <div class="breadcrumb">
-            <span>平台概览</span>
-            <span class="separator">></span>
-            <span class="active">建模管理</span>
+    </div>
+
+    <!-- 搜索表单 -->
+    <div class="search-form">
+        <div class="form-item">
+            <label>模型名称：<span class="note-number">1</span></label>
+            <input type="text" name="modelName" placeholder="请输入模型名称" />
+        </div>
+        <div class="form-item">
+            <label>数据源名称：<span class="note-number">2</span></label>
+            <input type="text" name="datasourceName" placeholder="请选择数据源" />
+        </div>
+        <div class="form-item">
+            <label>应用名称：<span class="note-number">11</span></label>
+            <input type="text" name="appName" placeholder="请选择应用" />
+        </div>
+        <div class="form-item">
+            <button type="button" class="btn btn-primary btn-search">搜索<span class="note-number">3</span></button>
+            <button type="button" class="btn btn-reset">重置<span class="note-number">4</span></button>
         </div>
     </div>
 
-    <div class="page-content">
-        <!-- 搜索筛选区 -->
-        <div class="filter-section">
-            <div class="filter-row">
-                <div class="filter-item">
-                    <label>模型名称：<span class="note-marker">1</span></label>
-                    <input type="text" class="form-input" placeholder="请输入模型名称">
-                </div>
-                <div class="filter-item">
-                    <label>数据源名称：<span class="note-marker">2</span></label>
-                    <input type="text" class="form-input" placeholder="请选择数据源">
-                </div>
-                <div class="filter-item">
-                    <label>应用名称：<span class="note-marker">3</span></label>
-                    <input type="text" class="form-input" placeholder="请选择应用">
-                </div>
-            </div>
-            <div class="filter-actions">
-                <button class="btn btn-primary">搜索</button>
-                <button class="btn btn-default">重置</button>
-            </div>
+    <!-- 工具栏 -->
+    <div class="toolbar">
+        <div class="toolbar-left">
+            <button type="button" class="btn btn-primary btn-add" data-type="模型">新增<span class="note-number">5</span></button>
+            <button type="button" class="btn btn-primary btn-import-local">本地导入<span class="note-number">6</span></button>
+            <button type="button" class="btn btn-danger btn-batch-delete" disabled>批量删除<span class="note-number">7</span></button>
         </div>
+    </div>
 
-        <!-- 操作按钮 -->
-        <div class="action-bar">
-            <button class="btn btn-primary">新增</button>
-            <button class="btn btn-default">本地导入</button>
-            <button class="btn btn-default" disabled>批量删除</button>
+    <!-- 数据表格 -->
+    <div class="table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">
+                        <input type="checkbox" class="checkbox" />
+                    </th>
+                    <th>实体模型名称<span class="note-number">8</span></th>
+                    <th>数据源名称<span class="note-number">10</span></th>
+                    <th>应用名称</th>
+                    <th>显示表单<span class="note-number">9</span></th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>收发文审批</td>
+                    <td>xinOA</td>
+                    <td>OA</td>
+                    <td>
+                        <a href="#" class="action-link btn-view-forms" data-model="收发文审批">查看</a>
+                    </td>
+                    <td>
+                        <a href="#" class="action-link btn-edit" data-id="1" data-name="收发文审批">编辑</a>
+                        <a href="#" class="action-link btn-set-props" data-model="收发文审批">设置字段属性</a>
+                        <a href="#" class="action-link btn-export" data-model="收发文审批">导出</a>
+                        <a href="#" class="action-link btn-delete" data-id="1" data-name="收发文审批">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>报销付款</td>
+                    <td>hrdata</td>
+                    <td>OA</td>
+                    <td>
+                        <a href="#" class="action-link btn-view-forms" data-model="报销付款">查看</a>
+                    </td>
+                    <td>
+                        <a href="#" class="action-link btn-edit" data-id="2" data-name="报销付款">编辑</a>
+                        <a href="#" class="action-link btn-set-props" data-model="报销付款">设置字段属性</a>
+                        <a href="#" class="action-link btn-export" data-model="报销付款">导出</a>
+                        <a href="#" class="action-link btn-delete" data-id="2" data-name="报销付款">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>系统权限申请</td>
+                    <td>xin</td>
+                    <td>脚手架</td>
+                    <td>
+                        <a href="#" class="action-link btn-view-forms" data-model="系统权限申请">查看</a>
+                    </td>
+                    <td>
+                        <a href="#" class="action-link btn-edit" data-id="3" data-name="系统权限申请">编辑</a>
+                        <a href="#" class="action-link btn-set-props" data-model="系统权限申请">设置字段属性</a>
+                        <a href="#" class="action-link btn-export" data-model="系统权限申请">导出</a>
+                        <a href="#" class="action-link btn-delete" data-id="3" data-name="系统权限申请">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>问题反馈表</td>
+                    <td>test_100_zhushuju</td>
+                    <td>OA</td>
+                    <td>
+                        <a href="#" class="action-link btn-view-forms" data-model="问题反馈表">查看</a>
+                    </td>
+                    <td>
+                        <a href="#" class="action-link btn-edit" data-id="4" data-name="问题反馈表">编辑</a>
+                        <a href="#" class="action-link btn-set-props" data-model="问题反馈表">设置字段属性</a>
+                        <a href="#" class="action-link btn-export" data-model="问题反馈表">导出</a>
+                        <a href="#" class="action-link btn-delete" data-id="4" data-name="问题反馈表">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>项目立项申请表</td>
+                    <td>te12034tre</td>
+                    <td>OA</td>
+                    <td>
+                        <a href="#" class="action-link btn-view-forms" data-model="项目立项申请表">查看</a>
+                    </td>
+                    <td>
+                        <a href="#" class="action-link btn-edit" data-id="5" data-name="项目立项申请表">编辑</a>
+                        <a href="#" class="action-link btn-set-props" data-model="项目立项申请表">设置字段属性</a>
+                        <a href="#" class="action-link btn-export" data-model="项目立项申请表">导出</a>
+                        <a href="#" class="action-link btn-delete" data-id="5" data-name="项目立项申请表">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>培训补贴费审批表</td>
+                    <td>localhost</td>
+                    <td>OA</td>
+                    <td>
+                        <a href="#" class="action-link btn-view-forms" data-model="培训补贴费审批表">查看</a>
+                    </td>
+                    <td>
+                        <a href="#" class="action-link btn-edit" data-id="6" data-name="培训补贴费审批表">编辑</a>
+                        <a href="#" class="action-link btn-set-props" data-model="培训补贴费审批表">设置字段属性</a>
+                        <a href="#" class="action-link btn-export" data-model="培训补贴费审批表">导出</a>
+                        <a href="#" class="action-link btn-delete" data-id="6" data-name="培训补贴费审批表">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td>技术人员工作总结表</td>
+                    <td>yu12034tre</td>
+                    <td>PC门户</td>
+                    <td>
+                        <a href="#" class="action-link btn-view-forms" data-model="技术人员工作总结表">查看</a>
+                    </td>
+                    <td>
+                        <a href="#" class="action-link btn-edit" data-id="7" data-name="技术人员工作总结表">编辑</a>
+                        <a href="#" class="action-link btn-set-props" data-model="技术人员工作总结表">设置字段属性</a>
+                        <a href="#" class="action-link btn-export" data-model="技术人员工作总结表">导出</a>
+                        <a href="#" class="action-link btn-delete" data-id="7" data-name="技术人员工作总结表">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 分页 -->
+    <div class="pagination">
+        <button disabled>上一页</button>
+        <button class="active">1</button>
+        <button>下一页</button>
+    </div>
+
+    <!-- 页面说明 -->
+    <div class="notes-section">
+        <h3>页面说明</h3>
+        <div class="note-item">
+            <strong>页面名称：</strong>建模管理
         </div>
-
-        <!-- 数据表格 -->
-        <div class="table-container">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th><input type="checkbox" class="select-all"></th>
-                        <th>实体模型名称</th>
-                        <th>数据源名称</th>
-                        <th>应用名称</th>
-                        <th>显示表单<span class="note-marker">2</span></th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>收发文审批</td>
-                        <td>xinOA</td>
-                        <td>OA</td>
-                        <td><a href="#" class="link-btn">查看</a></td>
-                        <td>
-                            <a href="#" class="link-btn">编辑</a>
-                            <a href="#" class="link-btn">设置字段属性</a>
-                            <a href="#" class="link-btn">导出</a>
-                            <a href="#" class="link-btn">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>报销付款</td>
-                        <td>hrdata</td>
-                        <td>OA</td>
-                        <td><a href="#" class="link-btn">查看</a></td>
-                        <td>
-                            <a href="#" class="link-btn">编辑</a>
-                            <a href="#" class="link-btn">设置字段属性</a>
-                            <a href="#" class="link-btn">导出</a>
-                            <a href="#" class="link-btn">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>系统权限申请</td>
-                        <td>xin</td>
-                        <td>脚手架</td>
-                        <td><a href="#" class="link-btn">查看</a></td>
-                        <td>
-                            <a href="#" class="link-btn">编辑</a>
-                            <a href="#" class="link-btn">设置字段属性</a>
-                            <a href="#" class="link-btn">导出</a>
-                            <a href="#" class="link-btn">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>问题反馈表</td>
-                        <td>test_100_zhushuju</td>
-                        <td>OA</td>
-                        <td><a href="#" class="link-btn">查看</a></td>
-                        <td>
-                            <a href="#" class="link-btn">编辑</a>
-                            <a href="#" class="link-btn">设置字段属性</a>
-                            <a href="#" class="link-btn">导出</a>
-                            <a href="#" class="link-btn">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>项目立项申请表</td>
-                        <td>te12034tre</td>
-                        <td>OA</td>
-                        <td><a href="#" class="link-btn">查看</a></td>
-                        <td>
-                            <a href="#" class="link-btn">编辑</a>
-                            <a href="#" class="link-btn">设置字段属性</a>
-                            <a href="#" class="link-btn">导出</a>
-                            <a href="#" class="link-btn">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>培训补贴费审批表</td>
-                        <td>localhost</td>
-                        <td>OA</td>
-                        <td><a href="#" class="link-btn">查看</a></td>
-                        <td>
-                            <a href="#" class="link-btn">编辑</a>
-                            <a href="#" class="link-btn">设置字段属性</a>
-                            <a href="#" class="link-btn">导出</a>
-                            <a href="#" class="link-btn">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>技术人员工作总结表</td>
-                        <td>yu12034tre</td>
-                        <td>PC门户</td>
-                        <td><a href="#" class="link-btn">查看</a></td>
-                        <td>
-                            <a href="#" class="link-btn">编辑</a>
-                            <a href="#" class="link-btn">设置字段属性</a>
-                            <a href="#" class="link-btn">导出</a>
-                            <a href="#" class="link-btn">删除</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="note-item">
+            <strong>页面描述：</strong>列表页，管理已创建的实体模型
         </div>
-
-        <!-- 原型说明 -->
-        <div class="prototype-notes">
-            <h3>原型说明：</h3>
-            
-            <div class="note-section">
-                <h4>页面名称：建模管理</h4>
-                <p><strong>页面描述：</strong>列表页，管理已创建的实体模型</p>
-                <p><strong>页面应用：</strong>新建表单的数据源为数据库，需选择该板块创建的模型进行关联</p>
-            </div>
-
-            <div class="note-section">
-                <h4>列表显示说明 <span class="note-marker">1</span></h4>
-                <ul>
-                    <li>1.1 无数据时，显示为空，提示语：暂无数据</li>
-                    <li>1.2 每页最多显示10条信息，超出翻页</li>
-                    <li>1.3 若模型已被使用，则复选框置灰，不可勾选</li>
-                    <li>1.4 数据按更新时间倒序显示</li>
-                </ul>
-            </div>
-
-            <div class="note-section">
-                <h4>显示表单说明 <span class="note-marker">2</span></h4>
-                <ul>
-                    <li>2.1 点击"查看"浮层显示：显示表单</li>
-                    <li>2.2 显示表单说明：</li>
-                    <li>2.2.1 浮层显示该模型创建关联的显示表单</li>
-                    <li>2.2.2 无数据时，列表显示为空，提示语：暂无数据</li>
-                    <li>2.2.3 点击"表单名称"跳转至表单编辑器，显示内容为该表单的内容，支持编辑保存</li>
-                    <li>2.2.4 数据按表单的更新时间倒序显示</li>
-                </ul>
-            </div>
-
-            <div class="note-section">
-                <h4>列表操作说明 <span class="note-marker">3</span></h4>
-                <ul>
-                    <li>3.1 编辑：点击"编辑"浮层显示：编辑模型弹框，详见编辑模型的弹框说明</li>
-                    <li>3.2 设置字段属性：点击"设置字段属性"浮层显示：设置字段属性弹框，详见设置字段属性的弹框说明</li>
-                    <li>3.3 导出：导出数据表的格式为JSON，具体信息详见开发设计文档</li>
-                    <li>3.4 删除：点击后弹框提示：删除后该模型将无法再被使用，且数据无法恢复。确认要删除吗？</li>
-                    <li>（1）点击"取消"关闭弹框</li>
-                    <li>（2）点击"确定"逻辑：
-                        <br>a. 需判断所选模型是否被使用，若被使用则不可删除，提示：{模型名称}已被使用，不可删除
-                        <br>b. 若可删除则删除所选模型并关闭弹框、刷新页面
-                    </li>
-                </ul>
-            </div>
-
-            <div class="note-section">
-                <h4>设置字段属性说明 <span class="note-marker">4</span></h4>
-                <ul>
-                    <li>4.1 字段按主表和明细表分tab显示</li>
-                    <li>4.2 每行显示字段数量：用于初始化模版同步时一行放置字段数，枚举值为2、3、4，默认显示：2</li>
-                    <li>4.3 独占一行：勾选此项的字段在初始化模板时单独占一行，第一列存放字段标签，剩余列全部合并存放字段内容</li>
-                    <li>4.4 系统自动生成的字段，可编辑和必填的勾选框都置灰</li>
-                </ul>
-            </div>
+        <div class="note-item">
+            <strong>页面应用：</strong>新建表单的数据源为数据库，需选择该板块创建的模型进行关联
+        </div>
+        <div class="note-item" style="margin-top: 16px;">
+            <strong>注解说明：</strong>
+            <ul style="margin-left: 20px; margin-top: 8px;">
+                <li><strong>1. 模型名称：</strong>筛选项：支持模糊搜索模型名称</li>
+                <li><strong>2. 数据源名称：</strong>筛选项：支持模糊搜索数据源名称</li>
+                <li><strong>3. 搜索：</strong>点击"搜索"下方列表根据上方查询项联动显示筛选后数据</li>
+                <li><strong>4. 重置：</strong>点击"重置"查询项恢复初始状态，下方列表内容根据初始化查询项刷新显示</li>
+                <li><strong>5. 新增：</strong>点击"新增"浮层显示：新增模型的弹框，详见新增模型的弹框说明</li>
+                <li><strong>6. 本地导入：</strong>点击"本地导入"浮层显示：选择模型的弹框，详见选择模型的弹框说明</li>
+                <li><strong>7. 批量删除：</strong>批量删除：1、初始状态为置灰不可点击，列表勾选数据后按钮高亮；2、点击后弹框提示：删除后该模型将无法再被使用，且数据无法恢复。确认要删除吗？ 取消 确定（点击"取消"关闭弹框，点击"确定"逻辑删除所选模型并关闭弹框、刷新页面）</li>
+                <li><strong>8. 实体模型名称：</strong>实体模型名称：新增/编辑时录入的信息</li>
+                <li><strong>9. 显示表单：</strong>点击"查看"浮层显示：显示表单；浮层显示该模型创建关联的显示表单；无数据时，列表显示为空，提示语：暂无数据；点击"表单名称"跳转至表单编辑器，显示内容为该表单的内容，支持编辑保存；数据按表单的更新时间倒序显示</li>
+                <li><strong>10. 数据源名称：</strong>数据源名称：新增/编辑时选择的信息</li>
+                <li><strong>11. 应用名称：</strong>应用名称：新增/编辑时选择的信息</li>
+            </ul>
+        </div>
+        <div class="note-item" style="margin-top: 16px;">
+            <strong>列表显示说明：</strong>
+            <ul style="margin-left: 20px; margin-top: 8px;">
+                <li>1.1 无数据时，显示为空，提示语：暂无数据</li>
+                <li>1.2 每页最多显示10条信息，超出翻页</li>
+                <li>1.3 若模型已被使用，则复选框置灰，不可勾选</li>
+                <li>1.4 数据按更新时间倒序显示</li>
+            </ul>
+        </div>
+        <div class="note-item" style="margin-top: 16px;">
+            <strong>列表操作说明：</strong>
+            <ul style="margin-left: 20px; margin-top: 8px;">
+                <li>3.1 编辑：点击"编辑"浮层显示：编辑模型弹框，详见编辑模型的弹框说明</li>
+                <li>3.2 设置字段属性：点击"设置字段属性"浮层显示：设置字段属性弹框，详见设置字段属性的弹框说明</li>
+                <li>3.3 导出：导出数据表的格式为JSON，具体信息详见开发设计文档</li>
+                <li>3.4 删除：点击后弹框提示：删除后该模型将无法再被使用，且数据无法恢复。确认要删除吗？
+                    <br>（1）点击"取消"关闭弹框
+                    <br>（2）点击"确定"逻辑：
+                    <br>a. 需判断所选模型是否被使用，若被使用则不可删除，提示：{模型名称}已被使用，不可删除
+                    <br>b. 若可删除则删除所选模型并关闭弹框、刷新页面</li>
+            </ul>
         </div>
     </div>
 </div>
-
 
